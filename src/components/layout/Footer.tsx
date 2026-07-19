@@ -1,8 +1,14 @@
 import { MessageCircle } from "lucide-react";
 
 import { ComicBurst, DecorativeFace, Halftone, InstagramIcon } from "../brand";
+import { brandConfig } from "../../config/brand";
+import { siteConfig } from "../../config/site";
+import { socialLinks } from "../../config/social";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { NAV_LINKS } from "../../data/site";
+import { navigationItems } from "../../data";
+
+const whatsappLink = socialLinks.find((link) => link.id === "whatsapp")!;
+const instagramLink = socialLinks.find((link) => link.id === "instagram")!;
 
 export function Footer() {
   return (
@@ -15,22 +21,22 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <ComicBurst className="w-10 h-10 shrink-0" color="#FFC400" pts={8} />
               <span className="text-[#FFC400] text-3xl leading-none" style={BANGERS}>
-                El Rey Del Lápiz
+                {brandConfig.name}
               </span>
             </div>
             <p className="text-white/40 text-sm font-semibold leading-relaxed" style={NUNITO}>
-              Caricaturas en vivo para eventos únicos.
+              {siteConfig.footer.description[0]}
               <br />
-              Risas garantizadas en cada trazo.
+              {siteConfig.footer.description[1]}
             </p>
           </div>
 
           <div>
             <h4 className="text-[#FFC400] font-black mb-5 text-xl" style={BANGERS}>
-              Navegación
+              {siteConfig.footer.navigationTitle}
             </h4>
             <div className="flex flex-col gap-2">
-              {NAV_LINKS.map((l) => (
+              {navigationItems.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
@@ -45,38 +51,38 @@ export function Footer() {
 
           <div>
             <h4 className="text-[#FFC400] font-black mb-5 text-xl" style={BANGERS}>
-              Sígueme
+              {siteConfig.footer.socialTitle}
             </h4>
             <div className="flex gap-3 mb-5">
               <a
-                href="https://wa.me/"
+                href={whatsappLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-[#25D366] border-2 border-[#333] rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_#333]"
-                aria-label="WhatsApp"
+                aria-label={whatsappLink.ariaLabel}
               >
                 <MessageCircle size={20} className="text-white" />
               </a>
               <a
-                href="https://instagram.com/"
+                href={instagramLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 border-2 border-[#333] rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_#333] text-white"
                 style={{ background: "linear-gradient(135deg, #FF3D00, #C13584)" }}
-                aria-label="Instagram"
+                aria-label={instagramLink.ariaLabel}
               >
                 <InstagramIcon size={20} />
               </a>
             </div>
             <p className="text-white/30 text-xs font-semibold" style={NUNITO}>
-              [Tu Ciudad], Chile
+              {siteConfig.contact.city}
             </p>
           </div>
         </div>
 
         <div className="border-t border-white/8 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/25 text-xs font-semibold" style={NUNITO}>
-            © 2025 El Rey Del Lápiz. Todos los derechos reservados.
+            {siteConfig.footer.copyright}
           </p>
           <div className="flex gap-2 items-center">
             {[0, 1, 2, 3, 4].map((v) => (

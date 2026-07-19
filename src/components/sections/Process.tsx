@@ -1,6 +1,6 @@
 import { ComicBurst, DecorativeFace, Halftone } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { STEPS } from "../../data/site";
+import { processSteps, sectionHeadings } from "../../data";
 
 export function Process() {
   return (
@@ -13,23 +13,23 @@ export function Process() {
             className="inline-block bg-[#00A8FF] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
             style={NUNITO}
           >
-            Súper fácil
+            {sectionHeadings.process.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
             style={{ ...BANGERS, textShadow: "4px 4px 0 #00A8FF" }}
           >
-            ¿Cómo Funciona?
+            {sectionHeadings.process.title}
           </h2>
           <p className="text-white/50 text-lg font-bold max-w-xl mx-auto" style={NUNITO}>
-            4 simples pasos para tener el mejor entretenimiento en tu evento.
+            {sectionHeadings.process.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {STEPS.map((step, i) => (
+          {processSteps.map((step, i) => (
             <div key={i} className="relative group">
-              {i < STEPS.length - 1 && (
+              {i < processSteps.length - 1 && (
                 <div
                   className="hidden lg:block absolute top-10 left-[calc(100%-8px)] w-full h-1 z-0"
                   style={{

@@ -1,6 +1,6 @@
 import { ComicBurst, DecorativeFace, Halftone } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { SERVICES } from "../../data/site";
+import { sectionHeadings, services } from "../../data";
 
 export function Services() {
   return (
@@ -14,22 +14,21 @@ export function Services() {
             className="inline-block bg-[#FFC400] text-[#111] font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
             style={NUNITO}
           >
-            ¿Qué ofrezco?
+            {sectionHeadings.services.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
             style={{ ...BANGERS, textShadow: "4px 4px 0 #FFC400" }}
           >
-            Servicios
+            {sectionHeadings.services.title}
           </h2>
           <p className="text-white/50 text-lg font-bold max-w-xl mx-auto" style={NUNITO}>
-            Caricaturas en vivo para cada tipo de evento. ¡El entretenimiento que
-            todos recordarán!
+            {sectionHeadings.services.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((svc, i) => (
+          {services.map((svc, i) => (
             <div
               key={i}
               className="relative bg-[#1a1a1a] border-4 border-[#333] rounded-3xl overflow-visible shadow-[8px_8px_0_#FFC400] hover:shadow-[3px_3px_0_#FFC400] hover:translate-x-1.5 hover:translate-y-1.5 transition-all group"

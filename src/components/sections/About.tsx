@@ -1,5 +1,6 @@
 import { ComicBurst, DecorativeFace, Halftone, SpeechBubble, ZigZagBorder } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
+import { aboutContent } from "../../data";
 
 export function About() {
   return (
@@ -20,7 +21,7 @@ export function About() {
                   <ellipse cx="50" cy="84" rx="32" ry="24" fill="currentColor" />
                 </svg>
                 <span className="text-xs font-black tracking-widest uppercase text-center px-4" style={NUNITO}>
-                  Foto del Artista
+                  {aboutContent.imageLabel}
                 </span>
               </div>
               <Halftone opacity={0.06} />
@@ -38,32 +39,24 @@ export function About() {
           </div>
 
           <div>
-            <SpeechBubble text="¡Hola! Soy El Rey Del Lápiz" bg="#111" fg="#FFC400" className="mb-8" />
+            <SpeechBubble text={aboutContent.greeting} bg="#111" fg="#FFC400" className="mb-8" />
 
             <h2
               className="text-5xl md:text-6xl text-[#111] mb-6 leading-none"
               style={{ ...BANGERS, textShadow: "3px 3px 0 rgba(0,0,0,0.15)" }}
             >
-              El Artista Que Hace Reír A Todos
+              {aboutContent.title}
             </h2>
 
             <p className="text-[#111]/75 text-lg font-bold mb-4 leading-relaxed" style={NUNITO}>
-              [Agrega aquí tu historia y presentación personal. Cuéntale a tus
-              clientes quién eres, de dónde vienes y qué te apasiona de las
-              caricaturas en vivo.]
+              {aboutContent.paragraphs[0]}
             </p>
             <p className="text-[#111]/60 text-base font-semibold mb-10 leading-relaxed" style={NUNITO}>
-              [Comparte tu trayectoria, tu estilo único y tu misión: transformar
-              cada evento en una experiencia llena de humor, arte y recuerdos
-              inolvidables para todos los invitados.]
+              {aboutContent.paragraphs[1]}
             </p>
 
             <div className="flex flex-wrap gap-4">
-              {[
-                { label: "+[X] Eventos", bg: "#111", fg: "#FFC400" },
-                { label: "+[X] Caricaturas", bg: "white", fg: "#111" },
-                { label: "[X] Años Exp.", bg: "#FF3D00", fg: "white" },
-              ].map((badge) => (
+              {aboutContent.badges.map((badge) => (
                 <div
                   key={badge.label}
                   className="font-black text-lg px-5 py-3 rounded-xl border-4 border-[#111] shadow-[4px_4px_0_#111]"

@@ -1,7 +1,10 @@
 import { MessageCircle } from "lucide-react";
 
 import { DecorativeFace, Halftone, InstagramIcon } from "../brand";
+import { contactFormConfig } from "../../config/editableFields";
+import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
+import { sectionHeadings } from "../../data";
 
 export function Contact() {
   const inputClass =
@@ -24,32 +27,32 @@ export function Contact() {
             className="inline-block bg-[#25D366] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
             style={NUNITO}
           >
-            ¡Reserva aquí!
+            {sectionHeadings.contact.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
             style={{ ...BANGERS, textShadow: "4px 4px 0 #25D366" }}
           >
-            Contacto
+            {sectionHeadings.contact.title}
           </h2>
           <p className="text-white/50 text-lg font-bold" style={NUNITO}>
-            Cuéntame sobre tu evento y te preparo una propuesta personalizada.
+            {sectionHeadings.contact.description}
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
           <a
-            href="https://wa.me/"
+            href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 bg-[#25D366] text-white text-2xl px-10 py-5 rounded-2xl border-4 border-[#111] shadow-[8px_8px_0_#FFC400] hover:shadow-[2px_2px_0_#FFC400] hover:translate-x-1.5 hover:translate-y-1.5 transition-all"
             style={BANGERS}
           >
             <MessageCircle size={32} />
-            Reservar Por WhatsApp
+            {siteConfig.ctas.reserveWhatsapp}
           </a>
           <a
-            href="https://instagram.com/"
+            href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 text-white text-2xl px-10 py-5 rounded-2xl border-4 border-[#111] shadow-[8px_8px_0_#B744FF] hover:shadow-[2px_2px_0_#B744FF] hover:translate-x-1.5 hover:translate-y-1.5 transition-all"
@@ -59,7 +62,7 @@ export function Contact() {
             }}
           >
             <InstagramIcon size={32} />
-            Ver Instagram
+            {siteConfig.ctas.viewInstagram}
           </a>
         </div>
 
@@ -70,57 +73,53 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                Nombre *
+                {contactFormConfig.labels.name}
               </label>
-              <input type="text" placeholder="Tu nombre completo" className={inputClass} style={NUNITO} />
+              <input type="text" placeholder={contactFormConfig.placeholders.name} className={inputClass} style={NUNITO} />
             </div>
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                Correo *
+                {contactFormConfig.labels.email}
               </label>
-              <input type="email" placeholder="tu@correo.com" className={inputClass} style={NUNITO} />
+              <input type="email" placeholder={contactFormConfig.placeholders.email} className={inputClass} style={NUNITO} />
             </div>
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                Teléfono
+                {contactFormConfig.labels.phone}
               </label>
-              <input type="tel" placeholder="+56 9 XXXX XXXX" className={inputClass} style={NUNITO} />
+              <input type="tel" placeholder={contactFormConfig.placeholders.phone} className={inputClass} style={NUNITO} />
             </div>
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                Tipo de Evento *
+                {contactFormConfig.labels.eventType}
               </label>
               <select className={inputClass} style={NUNITO} defaultValue="">
-                <option value="" disabled>Selecciona un tipo...</option>
-                <option>Matrimonio</option>
-                <option>Cumpleaños</option>
-                <option>Evento Corporativo</option>
-                <option>Graduación</option>
-                <option>Feria / Exposición</option>
-                <option>Fiesta Privada</option>
-                <option>Otro</option>
+                <option value="" disabled>{contactFormConfig.placeholders.eventType}</option>
+                {contactFormConfig.eventTypes.map((eventType) => (
+                  <option key={eventType}>{eventType}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                Fecha del Evento
+                {contactFormConfig.labels.eventDate}
               </label>
               <input type="date" className={inputClass} style={NUNITO} />
             </div>
             <div>
               <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-                N° de Invitados
+                {contactFormConfig.labels.guests}
               </label>
-              <input type="number" placeholder="Aprox. cuántos asistentes" className={inputClass} style={NUNITO} />
+              <input type="number" placeholder={contactFormConfig.placeholders.guests} className={inputClass} style={NUNITO} />
             </div>
           </div>
           <div className="mb-7">
             <label className="block text-white font-black mb-2 text-xs uppercase tracking-widest" style={NUNITO}>
-              Mensaje
+              {contactFormConfig.labels.message}
             </label>
             <textarea
               rows={4}
-              placeholder="Cuéntame más sobre tu evento, lugar, horario y cualquier requerimiento especial..."
+              placeholder={contactFormConfig.placeholders.message}
               className={`${inputClass} resize-none`}
               style={NUNITO}
             />
@@ -130,7 +129,7 @@ export function Contact() {
             className="w-full bg-[#FFC400] text-[#111] text-2xl py-4 rounded-2xl border-4 border-[#111] shadow-[6px_6px_0_#111] hover:shadow-[2px_2px_0_#111] hover:translate-x-1 hover:translate-y-1 transition-all font-black"
             style={BANGERS}
           >
-            ¡Enviar Consulta! 🎨
+            {siteConfig.ctas.submitContact}
           </button>
         </form>
       </div>

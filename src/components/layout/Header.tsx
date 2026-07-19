@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 
 import { ComicBurst } from "../brand";
+import { brandConfig } from "../../config/brand";
+import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { NAV_LINKS } from "../../data/site";
+import { navigationItems } from "../../data";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -27,12 +29,12 @@ export function Header() {
         <a href="#inicio" className="flex items-center gap-2 group">
           <ComicBurst className="w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform" color="#FFC400" pts={8} />
           <span className="text-[#FFC400] text-2xl md:text-3xl leading-none" style={BANGERS}>
-            El Rey Del Lápiz
+            {brandConfig.name}
           </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-7">
-          {NAV_LINKS.map((l) => (
+          {navigationItems.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -43,21 +45,21 @@ export function Header() {
             </a>
           ))}
           <a
-            href="https://wa.me/"
+            href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-black px-5 py-2.5 rounded-full border-[3px] border-[#111] shadow-[3px_3px_0_#111] hover:shadow-[1px_1px_0_#111] hover:translate-x-px hover:translate-y-px transition-all text-base"
             style={BANGERS}
           >
             <MessageCircle size={16} />
-            Reservar
+            {siteConfig.ctas.reserveShort}
           </a>
         </nav>
 
         <button
           className="lg:hidden text-white p-2"
           onClick={() => setOpen(!open)}
-          aria-label="Menú"
+          aria-label="MenÃº"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -65,7 +67,7 @@ export function Header() {
 
       {open && (
         <div className="lg:hidden bg-[#111111] border-t-4 border-[#FFC400] px-6 py-6 flex flex-col gap-5">
-          {NAV_LINKS.map((l) => (
+          {navigationItems.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -77,14 +79,14 @@ export function Header() {
             </a>
           ))}
           <a
-            href="https://wa.me/"
+            href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 bg-[#25D366] text-white font-black text-xl px-6 py-3 rounded-full border-4 border-[#111]"
             style={BANGERS}
           >
             <MessageCircle size={22} />
-            Reservar Por WhatsApp
+            {siteConfig.ctas.reserveWhatsapp}
           </a>
         </div>
       )}

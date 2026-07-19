@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { ComicBurst, Halftone, ZigZagBorder } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { FAQS } from "../../data/site";
+import { faqItems, sectionHeadings } from "../../data";
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
@@ -17,15 +17,15 @@ export function Faq() {
         <div className="text-center mb-14">
           <ComicBurst className="inline-block w-20 mb-4" color="#111" pts={10} />
           <h2 className="text-5xl md:text-7xl text-[#111] mb-4" style={BANGERS}>
-            Preguntas Frecuentes
+            {sectionHeadings.faq.title}
           </h2>
           <p className="text-[#111]/65 text-lg font-bold" style={NUNITO}>
-            Todo lo que necesitas saber antes de reservar.
+            {sectionHeadings.faq.description}
           </p>
         </div>
 
         <div className="flex flex-col gap-4">
-          {FAQS.map((faq, i) => (
+          {faqItems.map((faq, i) => (
             <div
               key={i}
               className="bg-white border-4 border-[#111] rounded-2xl overflow-hidden shadow-[5px_5px_0_#111] hover:shadow-[7px_7px_0_#111] transition-all"

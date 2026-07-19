@@ -1,7 +1,9 @@
 import { ChevronDown, MessageCircle, Star } from "lucide-react";
 
 import { ComicBurst, DecorativeFace, Halftone, InstagramIcon, SpeechBubble } from "../brand";
+import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
+import { heroContent } from "../../data";
 
 export function Hero() {
   return (
@@ -12,12 +14,12 @@ export function Hero() {
 
       <div className="absolute top-16 left-0 md:left-8 w-32 md:w-52 -rotate-6 drop-shadow-2xl z-10">
         <DecorativeFace v={0} className="w-full" />
-        <SpeechBubble text="¡JAJAJA!" bg="#FFC400" className="absolute -top-14 left-2" />
+        <SpeechBubble text={heroContent.bubbles.laugh} bg="#FFC400" className="absolute -top-14 left-2" />
       </div>
 
       <div className="absolute top-24 right-0 md:right-8 w-28 md:w-48 rotate-8 drop-shadow-2xl z-10">
         <DecorativeFace v={1} className="w-full" />
-        <SpeechBubble text="¡WOW!" bg="#FF3D00" fg="white" className="absolute -top-12 right-2" />
+        <SpeechBubble text={heroContent.bubbles.wow} bg="#FF3D00" fg="white" className="absolute -top-12 right-2" />
       </div>
 
       <div className="absolute bottom-16 left-4 md:left-20 w-24 md:w-40 rotate-6 drop-shadow-2xl z-10 hidden sm:block">
@@ -26,7 +28,7 @@ export function Hero() {
 
       <div className="absolute bottom-12 right-4 md:right-20 w-24 md:w-40 -rotate-6 drop-shadow-2xl z-10 hidden sm:block">
         <DecorativeFace v={3} className="w-full" />
-        <SpeechBubble text="¡RISAS!" bg="#00A8FF" fg="white" className="absolute -top-12 right-2" />
+        <SpeechBubble text={heroContent.bubbles.laughs} bg="#00A8FF" fg="white" className="absolute -top-12 right-2" />
       </div>
 
       <ComicBurst className="absolute top-32 left-1/4 w-14 opacity-30 animate-spin" color="#FF3D00" pts={6} />
@@ -39,7 +41,7 @@ export function Hero() {
           style={NUNITO}
         >
           <Star size={13} fill="#111" />
-          Artista de Caricaturas en Vivo · Chile
+          {siteConfig.locationLabel}
           <Star size={13} fill="#111" />
         </div>
 
@@ -50,33 +52,32 @@ export function Hero() {
             textShadow: "4px 4px 0 #FFC400, 7px 7px 0 rgba(0,0,0,0.4)",
           }}
         >
-          ¡Convierte Tu Evento En Una{" "}
+          {heroContent.title.prefix}{" "}
           <span
             className="text-[#FFC400]"
             style={{ textShadow: "4px 4px 0 #111, 7px 7px 0 rgba(0,0,0,0.5)" }}
           >
-            Experiencia Llena De Risas!
+            {heroContent.title.highlight}
           </span>
         </h1>
 
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-bold" style={NUNITO}>
-          Caricaturas en vivo que hacen reír a todos tus invitados y crean
-          recuerdos únicos. El show que todo evento necesita.
+          {heroContent.description}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="https://wa.me/"
+            href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-xl px-9 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#111] hover:shadow-[2px_2px_0_#111] hover:translate-x-1 hover:translate-y-1 transition-all"
             style={BANGERS}
           >
             <MessageCircle size={26} />
-            Reservar Por WhatsApp
+            {siteConfig.ctas.reserveWhatsapp}
           </a>
           <a
-            href="https://instagram.com/"
+            href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-white text-xl px-9 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#C13584] hover:shadow-[2px_2px_0_#C13584] hover:translate-x-1 hover:translate-y-1 transition-all"
@@ -86,12 +87,12 @@ export function Hero() {
             }}
           >
             <InstagramIcon size={26} />
-            Ver Instagram
+            {siteConfig.ctas.viewInstagram}
           </a>
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-1 text-white/30 animate-bounce">
-          <span className="text-xs font-black uppercase tracking-widest" style={NUNITO}>Descubre más</span>
+          <span className="text-xs font-black uppercase tracking-widest" style={NUNITO}>{heroContent.discoverMore}</span>
           <ChevronDown size={18} />
         </div>
       </div>

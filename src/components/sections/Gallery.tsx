@@ -1,6 +1,8 @@
 import { ComicBurst, Halftone, InstagramIcon, ZigZagBorder } from "../brand";
+import { brandConfig } from "../../config/brand";
+import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
-import { CARD_TINTS, GALLERY } from "../../data/site";
+import { galleryItems, sectionHeadings } from "../../data";
 
 export function Gallery() {
   return (
@@ -14,25 +16,25 @@ export function Gallery() {
             className="inline-block bg-[#FF3D00] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
             style={NUNITO}
           >
-            Mis trabajos
+            {sectionHeadings.gallery.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
             style={{ ...BANGERS, textShadow: "4px 4px 0 #FF3D00" }}
           >
-            Galería
+            {sectionHeadings.gallery.title}
           </h2>
           <p className="text-white/50 text-lg font-bold max-w-xl mx-auto" style={NUNITO}>
-            Momentos reales. Caras reales. Risas reales. ¡Así se vive el show!
+            {sectionHeadings.gallery.description}
           </p>
         </div>
 
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-gap:1rem]">
-          {GALLERY.map((item, i) => (
+          {galleryItems.map((item, i) => (
             <div
               key={i}
               className="break-inside-avoid mb-4 rounded-2xl border-4 border-[#333] overflow-hidden group hover:border-[#FFC400] transition-all cursor-pointer"
-              style={{ backgroundColor: CARD_TINTS[i % CARD_TINTS.length] }}
+              style={{ backgroundColor: brandConfig.colors.galleryCardTints[i % brandConfig.colors.galleryCardTints.length] }}
             >
               <div className={`${item.h} relative flex flex-col items-center justify-center gap-3 text-white/15 p-4`}>
                 <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
@@ -62,7 +64,7 @@ export function Gallery() {
 
         <div className="text-center mt-12">
           <a
-            href="https://instagram.com/"
+            href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-white text-xl px-10 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#B744FF] hover:shadow-[2px_2px_0_#B744FF] hover:translate-x-1 hover:translate-y-1 transition-all"
@@ -72,7 +74,7 @@ export function Gallery() {
             }}
           >
             <InstagramIcon size={26} />
-            Ver Todas Las Fotos en Instagram
+            {siteConfig.ctas.viewAllInstagram}
           </a>
         </div>
       </div>
