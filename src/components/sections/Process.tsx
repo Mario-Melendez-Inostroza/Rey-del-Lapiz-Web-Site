@@ -1,4 +1,4 @@
-import { ComicBurst, DecorativeFace, Halftone } from "../brand";
+import { DecorativeFace, Halftone } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { processSteps, sectionHeadings } from "../../data";
 

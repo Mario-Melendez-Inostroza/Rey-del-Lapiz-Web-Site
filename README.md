@@ -1,11 +1,31 @@
+# Rey del Lápiz
 
-  # Modern One-Page Entertainment Website
+Landing profesional para un caricaturista en vivo.
 
-  This is a code bundle for Modern One-Page Entertainment Website. The original project is available at https://www.figma.com/design/ocQ9Zuqcp2NdBBbk1d3Ew3/Modern-One-Page-Entertainment-Website.
+## Objetivo
 
-  ## Running the code
+Generar reservas mediante WhatsApp.
 
-  Run `npm i` to install the dependencies.
+## Stack
 
-  Run `npm run dev` to start the development server.
-  
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+## Deploy
+
+Vercel
+
+## Desarrollo
+
+npm install
+
+npm run dev
+
+## Documentación
+
+- CLAUDE.md → contexto permanente para Claude Code
+- AUDIT.md → auditoría técnica actual
+- ROADMAP.md → plan de implementación
+- ADR.md → decisiones arquitectónicas
