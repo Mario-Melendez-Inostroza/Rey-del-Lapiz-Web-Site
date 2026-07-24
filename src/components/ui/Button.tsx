@@ -3,12 +3,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { BANGERS } from "../../config/typography";
 
-const button = cva("nb-btn inline-flex items-center justify-center border-[#111] transition-all", {
+const button = cva("nb-btn inline-flex items-center justify-center border-ink transition-all", {
   variants: {
     variant: {
-      whatsapp: "bg-[#25D366] hover:bg-[#1ebe5c] text-white",
+      whatsapp: "bg-whatsapp hover:bg-whatsapp-dark text-white",
       instagram: "text-white",
-      primary: "bg-[#FFC400] text-[#111]",
+      primary: "bg-primary text-ink",
     },
     size: {
       sm: "text-base px-5 py-2.5 border-[3px] gap-2 nb-btn--sm",
@@ -35,12 +35,13 @@ type Variant = NonNullable<ButtonVariants["variant"]>;
 
 /** Color por defecto de la sombra dura según la variante. */
 const VARIANT_SHADOW: Record<Variant, string> = {
-  whatsapp: "#111",
-  instagram: "#B744FF",
-  primary: "#111",
+  whatsapp: "var(--color-ink)",
+  instagram: "var(--color-purple)",
+  primary: "var(--color-ink)",
 };
 
-const INSTAGRAM_GRADIENT = "linear-gradient(135deg, #FF3D00, #C13584, #833AB4)";
+const INSTAGRAM_GRADIENT =
+  "linear-gradient(135deg, var(--color-accent), var(--color-instagram-mid), var(--color-instagram-end))";
 
 type BaseProps = ButtonVariants & {
   /** Sobrescribe el color de la sombra dura decorativa. */

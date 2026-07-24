@@ -4,20 +4,20 @@ import { processSteps, sectionHeadings } from "../../data";
 
 export function Process() {
   return (
-    <section id="como-funciona" className="relative bg-[#111111] py-28 overflow-hidden">
+    <section id="como-funciona" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <span
-            className="inline-block bg-[#00A8FF] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
+            className="inline-block bg-blue text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
             style={NUNITO}
           >
             {sectionHeadings.process.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
-            style={{ ...BANGERS, textShadow: "4px 4px 0 #00A8FF" }}
+            style={{ ...BANGERS, textShadow: "4px 4px 0 var(--color-blue)" }}
           >
             {sectionHeadings.process.title}
           </h2>
@@ -38,9 +38,9 @@ export function Process() {
                 />
               )}
 
-              <div className="relative z-10 rounded-3xl border-4 border-[#333] bg-[#1a1a1a] p-6 text-center hover:border-[#FFC400] hover:-translate-y-2 transition-all shadow-[4px_4px_0_#333] hover:shadow-[4px_4px_0_#FFC400]">
+              <div className="relative z-10 rounded-3xl border-4 border-border bg-surface p-6 text-center hover:border-primary hover:-translate-y-2 transition-all shadow-[4px_4px_0_var(--color-border)] hover:shadow-[4px_4px_0_var(--color-primary)]">
                 <div
-                  className="w-20 h-20 rounded-full border-4 border-[#111] flex items-center justify-center mx-auto mb-5 shadow-[4px_4px_0_#111]"
+                  className="w-20 h-20 rounded-full border-4 border-ink flex items-center justify-center mx-auto mb-5 shadow-[4px_4px_0_var(--color-ink)]"
                   style={{ backgroundColor: step.color }}
                 >
                   <span className="text-3xl" style={{ ...BANGERS, color: step.fg }}>

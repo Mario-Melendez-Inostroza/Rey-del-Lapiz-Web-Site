@@ -74,7 +74,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contacto" className="relative bg-[#111111] py-28 overflow-hidden">
+    <section id="contacto" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
       <div className="absolute left-0 bottom-32 w-28 opacity-30 -rotate-8 hidden lg:block">
@@ -87,14 +87,14 @@ export function Contact() {
       <div className="max-w-4xl mx-auto px-6 relative">
         <div className="text-center mb-12">
           <span
-            className="inline-block bg-[#25D366] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
+            className="inline-block bg-whatsapp text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
             style={NUNITO}
           >
             {sectionHeadings.contact.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
-            style={{ ...BANGERS, textShadow: "4px 4px 0 #25D366" }}
+            style={{ ...BANGERS, textShadow: "4px 4px 0 var(--color-whatsapp)" }}
           >
             {sectionHeadings.contact.title}
           </h2>
@@ -108,7 +108,7 @@ export function Contact() {
             variant="whatsapp"
             size="lg"
             shape="rounded"
-            shadowColor="#FFC400"
+            shadowColor="var(--color-primary)"
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
@@ -130,13 +130,13 @@ export function Contact() {
         </div>
 
         {sent ? (
-          <div className="bg-[#1a1a1a] border-4 border-[#333] rounded-3xl p-10 md:p-14 text-center shadow-[10px_10px_0_#25D366]">
-            <div className="flex justify-center mb-5 text-[#25D366]">
+          <div className="bg-surface border-4 border-border rounded-3xl p-10 md:p-14 text-center shadow-[10px_10px_0_var(--color-whatsapp)]">
+            <div className="flex justify-center mb-5 text-whatsapp">
               <CheckCircle2 size={64} />
             </div>
             <h3
               className="text-4xl md:text-5xl text-white mb-4"
-              style={{ ...BANGERS, textShadow: "3px 3px 0 #25D366" }}
+              style={{ ...BANGERS, textShadow: "3px 3px 0 var(--color-whatsapp)" }}
             >
               ¡Solicitud lista!
             </h3>
@@ -147,7 +147,7 @@ export function Contact() {
               href={whatsappUrl(siteConfig.contact.whatsapp, buildWhatsAppMessage(form))}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#FFC400] font-black underline decoration-2 underline-offset-4"
+              className="inline-flex items-center gap-2 text-primary font-black underline decoration-2 underline-offset-4"
               style={NUNITO}
             >
               <MessageCircle size={18} /> ¿No se abrió? Escríbeme aquí
@@ -155,7 +155,7 @@ export function Contact() {
           </div>
         ) : (
           <form
-            className="bg-[#1a1a1a] border-4 border-[#333] rounded-3xl p-8 md:p-10 shadow-[10px_10px_0_#FFC400]"
+            className="bg-surface border-4 border-border rounded-3xl p-8 md:p-10 shadow-[10px_10px_0_var(--color-primary)]"
             onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">

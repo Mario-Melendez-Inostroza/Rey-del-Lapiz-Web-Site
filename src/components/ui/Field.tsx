@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { NUNITO } from "../../config/typography";
 
 const CONTROL_CLASS =
-  "w-full bg-[#111] border-2 border-[#444] rounded-xl px-4 py-3 text-white placeholder-white/25 font-semibold focus:border-[#FFC400] focus:outline-none transition-colors";
+  "w-full bg-ink border-2 border-field-border rounded-xl px-4 py-3 text-base text-white placeholder-white/25 font-semibold focus:border-primary focus:outline-none transition-colors";
 const LABEL_CLASS = "block text-white font-black mb-2 text-xs uppercase tracking-widest";
 
 type CommonProps = {

@@ -39,4 +39,4 @@ Su propia deuda: estilos inline con hex hardcodeados que ignoran sus propios des
 
 ## Debilidad compartida por ambos proyectos
 
-Estilos inline con hex hardcodeados que conviven con los design tokens (`@theme`/`theme.css`/`brand.ts`) sin consumirlos; CTAs/inputs re-declarados por sección en vez de un `<Button>`/`<Input>` reutilizable. Corregir esto en Rey lo pondría por encima de GBIKE en este punto específico.
+**Resuelto en Rey (Fase 2 + Fase 3 adelantada).** Los CTAs/inputs se unificaron en `<Button>`/`<Field>` reutilizables (Fase 2), y los design tokens se consolidaron en una fuente única `styles/tokens.css` (`@theme` de Tailwind v4): el chrome ya no contiene hex de marca (verificado por grep). En este punto Rey quedó **por encima** de GBIKE, que mantiene el problema en su propio repo.

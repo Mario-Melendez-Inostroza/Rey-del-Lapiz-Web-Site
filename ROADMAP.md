@@ -22,7 +22,7 @@ Plan de implementación priorizado, en base a `AUDIT.md`. Se ejecuta una fase a 
 
 ## FASE 3 — Mejoras visuales (consistencia de diseño)
 
-- [ ] Unificar design tokens: eliminar hex dispersos (`bg-[#25D366]`, `shadow-[6px_6px_0_#111]`), consumir `brand.ts`/`theme.css` como única fuente. Alinear `theme.css` ↔ `brand.ts`.
+- [x] Unificar design tokens: fuente única en `styles/tokens.css` (`@theme` Tailwind v4); chrome sin hex de marca. Tipografía referencia tokens vía `typography.ts` (T2). Eliminados el `theme.css` shadcn y los `colors`/`typography` de `brand.ts`. _(Adelantado antes que el resto de Fase 3.)_
 - [ ] Imágenes reales optimizadas en galería/hero (WebP, `loading=lazy`, `width`/`height`, preload del LCP) reemplazando placeholders de color.
 - [ ] Accesibilidad de diseño: `aria-expanded`/`controls` en FAQ, `htmlFor` en labels, `:focus-visible`, `scroll-behavior: smooth`, `alt` descriptivos.
 

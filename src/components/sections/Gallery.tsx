@@ -7,21 +7,21 @@ import { galleryItems, sectionHeadings } from "../../data";
 
 export function Gallery() {
   return (
-    <section id="galeria" className="relative bg-[#1a1a1a] py-28 overflow-hidden">
+    <section id="galeria" className="relative bg-surface py-28 overflow-hidden">
       <Halftone opacity={0.06} />
       <ZigZagBorder top />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span
-            className="inline-block bg-[#FF3D00] text-white font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
+            className="inline-block bg-accent text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
             style={NUNITO}
           >
             {sectionHeadings.gallery.eyebrow}
           </span>
           <h2
             className="text-5xl md:text-7xl text-white mb-4"
-            style={{ ...BANGERS, textShadow: "4px 4px 0 #FF3D00" }}
+            style={{ ...BANGERS, textShadow: "4px 4px 0 var(--color-accent)" }}
           >
             {sectionHeadings.gallery.title}
           </h2>
@@ -34,12 +34,10 @@ export function Gallery() {
           {galleryItems.map((item, i) => (
             <div
               key={i}
-              className="break-inside-avoid mb-4 rounded-2xl border-4 border-[#333] overflow-hidden group hover:border-[#FFC400] transition-all cursor-pointer"
+              className="break-inside-avoid mb-4 rounded-2xl border-4 border-border overflow-hidden group hover:border-primary transition-all cursor-pointer"
               style={{
                 backgroundColor:
-                  brandConfig.colors.galleryCardTints[
-                    i % brandConfig.colors.galleryCardTints.length
-                  ],
+                  brandConfig.galleryCardTints[i % brandConfig.galleryCardTints.length],
               }}
             >
               <div
@@ -59,14 +57,14 @@ export function Gallery() {
                 {i % 3 === 0 && (
                   <ComicBurst
                     className="absolute top-2 right-2 w-8 opacity-30"
-                    color="#FFC400"
+                    color="var(--color-primary)"
                     pts={6}
                   />
                 )}
 
-                <div className="absolute inset-0 bg-[#FFC400]/0 group-hover:bg-[#FFC400]/8 transition-all flex items-end p-3 opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/8 transition-all flex items-end p-3 opacity-0 group-hover:opacity-100">
                   <span
-                    className="text-[10px] font-black text-white bg-[#111]/75 px-2 py-1 rounded-full"
+                    className="text-[10px] font-black text-white bg-ink/75 px-2 py-1 rounded-full"
                     style={NUNITO}
                   >
                     {item.label}
@@ -81,7 +79,7 @@ export function Gallery() {
           <Button
             variant="instagram"
             size="md"
-            shadowColor="#B744FF"
+            shadowColor="var(--color-purple)"
             href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"

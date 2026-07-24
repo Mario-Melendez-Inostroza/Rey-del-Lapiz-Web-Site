@@ -10,13 +10,13 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#111111]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink"
     >
       <Halftone opacity={0.1} />
 
       <ComicBurst
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] max-w-[140vw] opacity-[0.04]"
-        color="#FFC400"
+        color="var(--color-primary)"
         pts={20}
       />
 
@@ -24,7 +24,7 @@ export function Hero() {
         <DecorativeFace v={0} className="w-full" />
         <SpeechBubble
           text={heroContent.bubbles.laugh}
-          bg="#FFC400"
+          bg="var(--color-primary)"
           className="absolute -top-14 left-2"
         />
       </div>
@@ -33,7 +33,7 @@ export function Hero() {
         <DecorativeFace v={1} className="w-full" />
         <SpeechBubble
           text={heroContent.bubbles.wow}
-          bg="#FF3D00"
+          bg="var(--color-accent)"
           fg="white"
           className="absolute -top-12 right-2"
         />
@@ -47,7 +47,7 @@ export function Hero() {
         <DecorativeFace v={3} className="w-full" />
         <SpeechBubble
           text={heroContent.bubbles.laughs}
-          bg="#00A8FF"
+          bg="var(--color-blue)"
           fg="white"
           className="absolute -top-12 right-2"
         />
@@ -55,37 +55,41 @@ export function Hero() {
 
       <ComicBurst
         className="absolute top-32 left-1/4 w-14 opacity-30 animate-spin"
-        color="#FF3D00"
+        color="var(--color-accent)"
         pts={6}
       />
       <ComicBurst
         className="absolute bottom-40 right-1/4 w-10 opacity-25"
-        color="#00A8FF"
+        color="var(--color-blue)"
         pts={6}
       />
-      <ComicBurst className="absolute top-1/2 left-12 w-8 opacity-20" color="#00D26A" pts={6} />
+      <ComicBurst
+        className="absolute top-1/2 left-12 w-8 opacity-20"
+        color="var(--color-green)"
+        pts={6}
+      />
 
       <div className="relative z-20 text-center max-w-5xl mx-auto px-6 pt-20">
         <div
-          className="inline-flex items-center gap-2 bg-[#FFC400] text-[#111] font-black px-5 py-1.5 rounded-full border-4 border-[#111] mb-8 text-sm uppercase tracking-widest"
+          className="inline-flex items-center gap-2 bg-primary text-ink font-black px-5 py-1.5 rounded-full border-4 border-ink mb-8 text-sm uppercase tracking-widest"
           style={NUNITO}
         >
-          <Star size={13} fill="#111" />
+          <Star size={13} fill="var(--color-ink)" />
           {siteConfig.locationLabel}
-          <Star size={13} fill="#111" />
+          <Star size={13} fill="var(--color-ink)" />
         </div>
 
         <h1
           className="text-5xl sm:text-6xl md:text-7xl xl:text-[88px] text-white leading-[0.92] mb-8"
           style={{
             ...BANGERS,
-            textShadow: "4px 4px 0 #FFC400, 7px 7px 0 rgba(0,0,0,0.4)",
+            textShadow: "4px 4px 0 var(--color-primary), 7px 7px 0 rgba(0,0,0,0.4)",
           }}
         >
           {heroContent.title.prefix}{" "}
           <span
-            className="text-[#FFC400]"
-            style={{ textShadow: "4px 4px 0 #111, 7px 7px 0 rgba(0,0,0,0.5)" }}
+            className="text-primary"
+            style={{ textShadow: "4px 4px 0 var(--color-ink), 7px 7px 0 rgba(0,0,0,0.5)" }}
           >
             {heroContent.title.highlight}
           </span>
@@ -112,7 +116,7 @@ export function Hero() {
           <Button
             variant="instagram"
             size="md"
-            shadowColor="#C13584"
+            shadowColor="var(--color-instagram-mid)"
             href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"

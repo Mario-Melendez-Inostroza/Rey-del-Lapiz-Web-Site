@@ -21,17 +21,19 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#111111]/96 backdrop-blur shadow-[0_4px_0_0_#FFC400]" : "bg-transparent"
+        scrolled
+          ? "bg-ink/96 backdrop-blur shadow-[0_4px_0_0_var(--color-primary)]"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16 md:h-20">
         <a href="#inicio" className="flex items-center gap-2 group">
           <ComicBurst
             className="w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform"
-            color="#FFC400"
+            color="var(--color-primary)"
             pts={8}
           />
-          <span className="text-[#FFC400] text-2xl md:text-3xl leading-none" style={BANGERS}>
+          <span className="text-primary text-2xl md:text-3xl leading-none" style={BANGERS}>
             {brandConfig.name}
           </span>
         </a>
@@ -41,7 +43,7 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="text-white hover:text-[#FFC400] transition-colors text-sm font-black uppercase tracking-wider"
+              className="text-white hover:text-primary transition-colors text-sm font-black uppercase tracking-wider"
               style={NUNITO}
             >
               {l.label}
@@ -69,7 +71,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden bg-[#111111] border-t-4 border-[#FFC400] px-6 py-6 flex flex-col gap-5">
+        <div className="lg:hidden bg-ink border-t-4 border-primary px-6 py-6 flex flex-col gap-5">
           {navigationItems.map((l) => (
             <a
               key={l.href}
@@ -85,7 +87,7 @@ export function Header() {
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 bg-[#25D366] text-white font-black text-xl px-6 py-3 rounded-full border-4 border-[#111]"
+            className="flex items-center justify-center gap-3 bg-whatsapp text-white font-black text-xl px-6 py-3 rounded-full border-4 border-ink"
             style={BANGERS}
           >
             <MessageCircle size={22} />

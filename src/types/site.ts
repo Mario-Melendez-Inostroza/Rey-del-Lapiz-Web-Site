@@ -71,25 +71,7 @@ export type SiteConfig = {
 export type BrandConfig = {
   name: string;
   claim: string;
-  colors: {
-    primary: string;
-    ink: string;
-    accent: string;
-    blue: string;
-    green: string;
-    purple: string;
-    whatsapp: string;
-    instagramShadow: string;
-    galleryCardTints: string[];
-  };
-  typography: {
-    display: string;
-    body: string;
-  };
-  iconography: {
-    logoBurstPoints: number;
-    faceVariants: number;
-  };
+  galleryCardTints: string[];
 };
 
 export type SEOConfig = {

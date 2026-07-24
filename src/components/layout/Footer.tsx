@@ -12,15 +12,15 @@ const instagramLink = socialLinks.find((link) => link.id === "instagram")!;
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#0a0a0a] border-t-8 border-[#FFC400] py-14 overflow-hidden">
+    <footer className="relative bg-surface-deep border-t-8 border-primary py-14 overflow-hidden">
       <Halftone opacity={0.04} />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <ComicBurst className="w-10 h-10 shrink-0" color="#FFC400" pts={8} />
-              <span className="text-[#FFC400] text-3xl leading-none" style={BANGERS}>
+              <ComicBurst className="w-10 h-10 shrink-0" color="var(--color-primary)" pts={8} />
+              <span className="text-primary text-3xl leading-none" style={BANGERS}>
                 {brandConfig.name}
               </span>
             </div>
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[#FFC400] font-black mb-5 text-xl" style={BANGERS}>
+            <h4 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
               {siteConfig.footer.navigationTitle}
             </h4>
             <div className="flex flex-col gap-2">
@@ -40,7 +40,7 @@ export function Footer() {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-white/40 hover:text-[#FFC400] font-bold text-sm transition-colors"
+                  className="text-white/40 hover:text-primary font-bold text-sm transition-colors"
                   style={NUNITO}
                 >
                   {l.label}
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[#FFC400] font-black mb-5 text-xl" style={BANGERS}>
+            <h4 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
               {siteConfig.footer.socialTitle}
             </h4>
             <div className="flex gap-3 mb-5">
@@ -58,7 +58,7 @@ export function Footer() {
                 href={whatsappLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-[#25D366] border-2 border-[#333] rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_#333]"
+                className="w-12 h-12 bg-whatsapp border-2 border-border rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_var(--color-border)]"
                 aria-label={whatsappLink.ariaLabel}
               >
                 <MessageCircle size={20} className="text-white" />
@@ -67,8 +67,11 @@ export function Footer() {
                 href={instagramLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#333] rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_#333] text-white"
-                style={{ background: "linear-gradient(135deg, #FF3D00, #C13584)" }}
+                className="w-12 h-12 border-2 border-border rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_var(--color-border)] text-white"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-accent), var(--color-instagram-mid))",
+                }}
                 aria-label={instagramLink.ariaLabel}
               >
                 <InstagramIcon size={20} />

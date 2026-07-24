@@ -43,3 +43,18 @@ Este archivo vive en `docs/decisions.md`.
 **Por qué:** el repo tenía a la vez `package-lock.json` y `pnpm-workspace.yaml`, lo que puede producir instalaciones inconsistentes según el gestor que use cada quien. Se estandariza en npm por coherencia con GBIKE (proyecto de referencia) y para tener un único lockfile como fuente de verdad.
 
 **Alternativa descartada:** migrar a pnpm — más rápido y mejor en disco, pero habría divergido de GBIKE y obligaba a regenerar lockfile y reconfigurar el workspace sin beneficio real para una landing de una página.
+
+---
+
+## 2026-07-24 — Design tokens: fuente única en `styles/tokens.css`
+
+**Decisión:** toda la identidad visual (colores, familias tipográficas, tracking) vive en un único bloque `@theme` de Tailwind v4 en `src/styles/tokens.css`. Es la **única** fuente de verdad. Los componentes consumen tokens por tres vías: utilidades Tailwind (`bg-primary`, `text-ink`…), `var(--color-*)` en CSS/inline-styles, y `typography.ts` (que solo referencia `var(--font-*)`, no define valores). Se eliminaron las fuentes competidoras: el `theme.css` de shadcn (con `.dark`/oklch/chart/sidebar muertos) y los `colors`/`typography` de `brand.ts`.
+
+**Regla anti-regresión:** ningún hex de marca debe existir fuera de `tokens.css`. Verificable con:
+`grep -rEn "#[0-9a-fA-F]{3,8}" src/components/{layout,sections,ui} src/styles/components.css` (debe dar 0). Excepciones documentadas: los SVG de `components/brand/` (artwork con paleta propia) y los colores de contenido en `data/` (datos del cliente).
+
+**Por qué:** el proyecto es el template base de MM Digital Solutions; rebrandear un cliente debe ser editar un solo archivo, no un *find-and-replace* frágil por ~13 componentes.
+
+**Restricciones respetadas:** sin ThemeProvider/Context/hooks de tema, sin dark mode, sin multi-brand, sin dependencias nuevas. No se crearon tokens de radios (se usan las utilidades nativas de Tailwind) ni tokens "preventivos".
+
+**Alternativa descartada:** migrar los 66 `style={BANGERS/NUNITO}` a utilidades `font-display`/`font-body` (más idiomático Tailwind) — se descartó por alto churn sin beneficio; `typography.ts` se mantiene como wrapper que referencia los tokens (decisión T2), anotado como posible simplificación futura.
