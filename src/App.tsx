@@ -1,7 +1,7 @@
-import { Footer } from "../components/layout/Footer";
-import { Header } from "../components/layout/Header";
-import { About, Contact, Faq, Gallery, Hero, Process, Services } from "../components/sections";
-import { SeoJsonLd } from "../components/seo/SeoJsonLd";
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header";
+import { About, Contact, Faq, Gallery, Hero, Process, Services } from "./components/sections";
+import { SeoJsonLd } from "./components/seo/SeoJsonLd";
 
 export default function App() {
   return (

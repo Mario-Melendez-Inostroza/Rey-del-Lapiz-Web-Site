@@ -6,11 +6,11 @@ Plan de implementación priorizado, en base a `AUDIT.md`. Se ejecuta una fase a 
 
 ## FASE 1 — Cambios críticos (bloqueantes de producción / calidad base)
 
-- [ ] Añadir `tsconfig.json` + script `typecheck` y build `tsc -b && vite build` (copiar el rigor de GBIKE). Añadir `preview`.
-- [ ] Arreglar el mojibake en todo `config/` y `data/` (+ `Header.tsx` `aria-label`). Reescribir en UTF-8 correcto.
-- [ ] SEO real: reescribir `index.html` (`lang="es"`, títulos/descripción reales, quitar `noindex`, OG + Twitter, preconnect fonts) y conectar `seo.ts`; portar un `SeoJsonLd` (schema.org LocalBusiness/Person).
-- [ ] `react`/`react-dom` a `dependencies` (no `peerDependencies` opcionales).
-- [ ] Formulario funcional + datos de contacto reales: inputs controlados con `useState`, `handleSubmit` que abra WhatsApp con mensaje prellenado (patrón de `GBIKE/src/components/Contact.tsx`), estado `sent`, `htmlFor`/`id`, `required`. Completar WhatsApp/Instagram/email/teléfono en `site.ts`.
+- [x] Añadir `tsconfig.json` + script `typecheck` y build `tsc -b && vite build` (copiar el rigor de GBIKE). Añadir `preview`.
+- [x] Arreglar el mojibake en todo `config/` y `data/` (+ `Header.tsx` `aria-label`). Reescribir en UTF-8 correcto.
+- [x] SEO real: reescribir `index.html` (`lang="es"`, títulos/descripción reales, quitar `noindex`, OG + Twitter, preconnect fonts) y conectar `seo.ts`; portar un `SeoJsonLd` (schema.org LocalBusiness/Person).
+- [x] `react`/`react-dom` a `dependencies` (no `peerDependencies` opcionales).
+- [x] Formulario funcional: inputs controlados con `useState`, `handleSubmit` que abre WhatsApp con mensaje prellenado (patrón de `GBIKE/src/components/Contact.tsx`), estado `sent`, `htmlFor`/`id`, `required`. _(Datos reales de contacto en `site.ts` pendientes del content pass — opción B.)_
 
 ## FASE 2 — Mejoras importantes (arquitectura y limpieza)
 

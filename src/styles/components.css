@@ -1,0 +1,14 @@
+/* Botón neobrutalista: sombra dura con color dinámico (--nb-shadow) y "press" en hover.
+   El color se inyecta por variable CSS porque Tailwind no genera clases arbitrarias
+   con valores dinámicos; el offset/desplazamiento se define por tamaño (nb-btn--sm/md/lg). */
+.nb-btn {
+  box-shadow: var(--nb-x) var(--nb-y) 0 var(--nb-shadow);
+}
+.nb-btn:hover {
+  box-shadow: var(--nb-hx) var(--nb-hy) 0 var(--nb-shadow);
+  transform: translate(var(--nb-t), var(--nb-t));
+}
+
+.nb-btn--sm { --nb-x: 3px; --nb-y: 3px; --nb-hx: 1px; --nb-hy: 1px; --nb-t: 1px; }
+.nb-btn--md { --nb-x: 6px; --nb-y: 6px; --nb-hx: 2px; --nb-hy: 2px; --nb-t: 4px; }
+.nb-btn--lg { --nb-x: 8px; --nb-y: 8px; --nb-hx: 2px; --nb-hy: 2px; --nb-t: 6px; }

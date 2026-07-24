@@ -17,23 +17,18 @@ Su propia deuda: estilos inline con hex hardcodeados que ignoran sus propios des
 
 ## Gaps críticos (GBIKE le gana a Rey)
 
+> Fase 1 cerrada (2026-07-23): se resolvieron y quitaron de esta tabla los gaps de Type-check, SEO/`noindex`, Encoding (mojibake), `react`/`react-dom` como `peerDependencies` y Formulario no funcional.
+> Fase 2 en curso: resueltos también Componentes UI base duplicados, Dependencias redundantes/muertas, Componentes muertos (shadcn) y Alias `figma:asset`. Quedan los siguientes.
+
 | Área | GBIKE | Rey_Del_Lapiz |
 |---|---|---|
-| Type-check en build | `tsc -b && vite build`, strict, `noUnusedLocals/Parameters` | ❌ Sin `tsconfig.json`; `vite build` no valida tipos |
-| SEO | JSON-LD (`SeoJsonLd.tsx`), OG, Twitter, `lang` correcto, indexable | ❌ `noindex,nofollow`, `lang="en"`, `seo.ts` placeholder y sin usar |
 | robots/sitemap/public | ✅ `public/` con `robots.txt` + `sitemap.xml` | ❌ No existe carpeta `public/` |
 | Estado global | Context API + hook `useBusinessConfig()` | ❌ Sin Context ni hooks propios |
-| Capa de datos/servicios | `loadBusinessConfig` en cascada + validadores + API serverless | ❌ Sin servicios; datos de contacto vacíos |
-| Formulario funcional | Controlado, `handleSubmit` real (abre WhatsApp), estado `sent`, `htmlFor`/`id`, `required` | ❌ Inputs no controlados, `onSubmit` con `preventDefault` vacío, labels sin `htmlFor` |
-| Encoding | Texto español limpio | ❌ Mojibake generalizado (`LÃ¡piz`, `MenÃº`) |
+| Capa de datos/servicios | `loadBusinessConfig` en cascada + validadores + API serverless | ❌ Sin servicios; datos de contacto vacíos (pendientes del content pass) |
 | Imágenes | WebP + `loading=lazy` + preload/`fetchPriority` hero + `width`/`height` (anti-CLS) | ❌ Placeholders de color; sin pipeline de imágenes |
-| Accesibilidad | `aria-expanded`/`controls`, `alt` descriptivos, `prefers-reduced-motion`, `htmlFor` | ⚠️ Parcial: FAQ sin `aria-expanded`, 2 `alt` totales, labels sin asociar |
+| Accesibilidad | `aria-expanded`/`controls`, `alt` descriptivos, `prefers-reduced-motion`, `htmlFor` | ⚠️ Parcial: FAQ sin `aria-expanded`, 2 `alt` totales (el formulario de Contact ya usa `htmlFor`) |
 | Deploy | `vercel.json` | ❌ Sin config de deploy |
-| Dependencias | 4 runtime (mínimas, tree-shakeable) | ❌ Decenas redundantes/muertas |
-| `react`/`react-dom` | `dependencies` | ❌ Solo `peerDependencies` opcionales (riesgo builds reproducibles) |
-| Estructura | Una sola raíz de componentes | ❌ Dualidad `src/app/**` vs `src/**` |
-| Componentes muertos | — | ❌ ~46 componentes shadcn/ui sin importar (~5k líneas) |
-| Alias de assets | — | ❌ `figma:asset/` roto, sin uso real |
+| Estructura | Una sola raíz de componentes | ⚠️ `App.tsx` aún en `src/app/`; falta consolidar (Fase 2 · Paso 3) |
 
 ## Fortalezas actuales de Rey_Del_Lapiz (no tocar sin razón)
 
@@ -45,12 +40,3 @@ Su propia deuda: estilos inline con hex hardcodeados que ignoran sus propios des
 ## Debilidad compartida por ambos proyectos
 
 Estilos inline con hex hardcodeados que conviven con los design tokens (`@theme`/`theme.css`/`brand.ts`) sin consumirlos; CTAs/inputs re-declarados por sección en vez de un `<Button>`/`<Input>` reutilizable. Corregir esto en Rey lo pondría por encima de GBIKE en este punto específico.
-
-## Deuda técnica temporal (introducida en Fase 1 — eliminar tras Fase 2)
-
-El `tsconfig.json` **excluye del type-check** las carpetas generadas por Figma Make:
-`src/app/components/ui` (~46 componentes shadcn/ui) y `src/app/components/figma`.
-
-Motivo: ninguna sección/layout/brand/data/config las importa (verificado con grep), y son código muerto que rompería el chequeo estricto con errores que no vamos a arreglar. La exclusión es un parche temporal para tener `npm run typecheck` verde sobre el código real desde ya.
-
-**Acción requerida:** en la Fase 2 (Paso 8 del roadmap) se eliminan esas carpetas por completo; al hacerlo, **borrar también estas dos rutas del `exclude` en `tsconfig.json`** para que todo `src/` quede bajo type-check estricto sin excepciones.

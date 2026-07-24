@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 
 import { ComicBurst } from "../brand";
+import { Button } from "../ui/Button";
 import { brandConfig } from "../../config/brand";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -44,16 +45,16 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a
+          <Button
+            variant="whatsapp"
+            size="sm"
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-black px-5 py-2.5 rounded-full border-[3px] border-[#111] shadow-[3px_3px_0_#111] hover:shadow-[1px_1px_0_#111] hover:translate-x-px hover:translate-y-px transition-all text-base"
-            style={BANGERS}
           >
             <MessageCircle size={16} />
             {siteConfig.ctas.reserveShort}
-          </a>
+          </Button>
         </nav>
 
         <button

@@ -1,6 +1,7 @@
 import { ChevronDown, MessageCircle, Star } from "lucide-react";
 
 import { ComicBurst, DecorativeFace, Halftone, InstagramIcon, SpeechBubble } from "../brand";
+import { Button } from "../ui/Button";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { heroContent } from "../../data";
@@ -66,29 +67,27 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
+          <Button
+            variant="whatsapp"
+            size="md"
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-xl px-9 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#111] hover:shadow-[2px_2px_0_#111] hover:translate-x-1 hover:translate-y-1 transition-all"
-            style={BANGERS}
           >
             <MessageCircle size={26} />
             {siteConfig.ctas.reserveWhatsapp}
-          </a>
-          <a
+          </Button>
+          <Button
+            variant="instagram"
+            size="md"
+            shadowColor="#C13584"
             href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-white text-xl px-9 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#C13584] hover:shadow-[2px_2px_0_#C13584] hover:translate-x-1 hover:translate-y-1 transition-all"
-            style={{
-              ...BANGERS,
-              background: "linear-gradient(135deg, #FF3D00, #C13584, #833AB4)",
-            }}
           >
             <InstagramIcon size={26} />
             {siteConfig.ctas.viewInstagram}
-          </a>
+          </Button>
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-1 text-white/30 animate-bounce">

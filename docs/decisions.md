@@ -33,3 +33,13 @@ Este archivo vive en `docs/decisions.md`.
 **Por qué:** Rey_Del_Lapiz es una landing de una página. Esos documentos serían un párrafo cada uno hoy — más mantenimiento del que aportan. La carpeta `docs/` completa (como la de MM Digital Solutions) se reserva para proyectos más grandes o cuando un tema individual crezca lo suficiente.
 
 **Alternativa descartada:** crear toda la estructura de docs desde el día uno — se descartó por riesgo de carpetas vacías/abandonadas.
+
+---
+
+## 2026-07-23 — npm como gestor de paquetes (no pnpm)
+
+**Decisión:** Rey_Del_Lapiz usa **npm** como único gestor de paquetes. Se eliminó `pnpm-workspace.yaml` (heredado de Figma Make) y, en el cierre de Fase 1, el bloque `pnpm.overrides` de `package.json`. El lockfile canónico es `package-lock.json`.
+
+**Por qué:** el repo tenía a la vez `package-lock.json` y `pnpm-workspace.yaml`, lo que puede producir instalaciones inconsistentes según el gestor que use cada quien. Se estandariza en npm por coherencia con GBIKE (proyecto de referencia) y para tener un único lockfile como fuente de verdad.
+
+**Alternativa descartada:** migrar a pnpm — más rápido y mejor en disco, pero habría divergido de GBIKE y obligaba a regenerar lockfile y reconfigurar el workspace sin beneficio real para una landing de una página.

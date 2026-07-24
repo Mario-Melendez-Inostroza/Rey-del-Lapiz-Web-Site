@@ -1,4 +1,5 @@
 import { ComicBurst, Halftone, InstagramIcon, ZigZagBorder } from "../brand";
+import { Button } from "../ui/Button";
 import { brandConfig } from "../../config/brand";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -63,19 +64,17 @@ export function Gallery() {
         </div>
 
         <div className="text-center mt-12">
-          <a
+          <Button
+            variant="instagram"
+            size="md"
+            shadowColor="#B744FF"
             href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-white text-xl px-10 py-4 rounded-full border-4 border-[#111] shadow-[6px_6px_0_#B744FF] hover:shadow-[2px_2px_0_#B744FF] hover:translate-x-1 hover:translate-y-1 transition-all"
-            style={{
-              ...BANGERS,
-              background: "linear-gradient(135deg, #FF3D00, #C13584, #833AB4)",
-            }}
           >
             <InstagramIcon size={26} />
             {siteConfig.ctas.viewAllInstagram}
-          </a>
+          </Button>
         </div>
       </div>
 

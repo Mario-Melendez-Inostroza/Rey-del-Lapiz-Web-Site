@@ -2,6 +2,8 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 
 import { DecorativeFace, Halftone, InstagramIcon } from "../brand";
+import { Button } from "../ui/Button";
+import { Field } from "../ui/Field";
 import { contactFormConfig } from "../../config/editableFields";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -56,11 +58,6 @@ export function Contact() {
   const [form, setForm] = useState<ContactFormData>(EMPTY_FORM);
   const [sent, setSent] = useState(false);
 
-  const inputClass =
-    "w-full bg-[#111] border-2 border-[#444] rounded-xl px-4 py-3 text-white placeholder-white/25 font-semibold focus:border-[#FFC400] focus:outline-none transition-colors";
-  const labelClass =
-    "block text-white font-black mb-2 text-xs uppercase tracking-widest";
-
   const update =
     (field: keyof ContactFormData) =>
     (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -107,29 +104,29 @@ export function Contact() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-          <a
+          <Button
+            variant="whatsapp"
+            size="lg"
+            shape="rounded"
+            shadowColor="#FFC400"
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 bg-[#25D366] text-white text-2xl px-10 py-5 rounded-2xl border-4 border-[#111] shadow-[8px_8px_0_#FFC400] hover:shadow-[2px_2px_0_#FFC400] hover:translate-x-1.5 hover:translate-y-1.5 transition-all"
-            style={BANGERS}
           >
             <MessageCircle size={32} />
             {siteConfig.ctas.reserveWhatsapp}
-          </a>
-          <a
+          </Button>
+          <Button
+            variant="instagram"
+            size="lg"
+            shape="rounded"
             href={siteConfig.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 text-white text-2xl px-10 py-5 rounded-2xl border-4 border-[#111] shadow-[8px_8px_0_#B744FF] hover:shadow-[2px_2px_0_#B744FF] hover:translate-x-1.5 hover:translate-y-1.5 transition-all"
-            style={{
-              ...BANGERS,
-              background: "linear-gradient(135deg, #FF3D00, #C13584, #833AB4)",
-            }}
           >
             <InstagramIcon size={32} />
             {siteConfig.ctas.viewInstagram}
-          </a>
+          </Button>
         </div>
 
         {sent ? (
@@ -162,127 +159,84 @@ export function Contact() {
             onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-              <div>
-                <label htmlFor="contact-name" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.name}
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder={contactFormConfig.placeholders.name}
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.name}
-                  onChange={update("name")}
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-email" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.email}
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder={contactFormConfig.placeholders.email}
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.email}
-                  onChange={update("email")}
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-phone" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.phone}
-                </label>
-                <input
-                  id="contact-phone"
-                  name="phone"
-                  type="tel"
-                  placeholder={contactFormConfig.placeholders.phone}
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.phone}
-                  onChange={update("phone")}
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-eventType" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.eventType}
-                </label>
-                <select
-                  id="contact-eventType"
-                  name="eventType"
-                  required
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.eventType}
-                  onChange={update("eventType")}
-                >
-                  <option value="" disabled>
-                    {contactFormConfig.placeholders.eventType}
-                  </option>
-                  {contactFormConfig.eventTypes.map((eventType) => (
-                    <option key={eventType}>{eventType}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="contact-eventDate" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.eventDate}
-                </label>
-                <input
-                  id="contact-eventDate"
-                  name="eventDate"
-                  type="date"
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.eventDate}
-                  onChange={update("eventDate")}
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-guests" className={labelClass} style={NUNITO}>
-                  {contactFormConfig.labels.guests}
-                </label>
-                <input
-                  id="contact-guests"
-                  name="guests"
-                  type="number"
-                  min="0"
-                  placeholder={contactFormConfig.placeholders.guests}
-                  className={inputClass}
-                  style={NUNITO}
-                  value={form.guests}
-                  onChange={update("guests")}
-                />
-              </div>
-            </div>
-            <div className="mb-7">
-              <label htmlFor="contact-message" className={labelClass} style={NUNITO}>
-                {contactFormConfig.labels.message}
-              </label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={4}
-                placeholder={contactFormConfig.placeholders.message}
-                className={`${inputClass} resize-none`}
-                style={NUNITO}
-                value={form.message}
-                onChange={update("message")}
+              <Field
+                id="contact-name"
+                label={contactFormConfig.labels.name}
+                name="name"
+                type="text"
+                required
+                placeholder={contactFormConfig.placeholders.name}
+                value={form.name}
+                onChange={update("name")}
+              />
+              <Field
+                id="contact-email"
+                label={contactFormConfig.labels.email}
+                name="email"
+                type="email"
+                required
+                placeholder={contactFormConfig.placeholders.email}
+                value={form.email}
+                onChange={update("email")}
+              />
+              <Field
+                id="contact-phone"
+                label={contactFormConfig.labels.phone}
+                name="phone"
+                type="tel"
+                placeholder={contactFormConfig.placeholders.phone}
+                value={form.phone}
+                onChange={update("phone")}
+              />
+              <Field
+                as="select"
+                id="contact-eventType"
+                label={contactFormConfig.labels.eventType}
+                name="eventType"
+                required
+                value={form.eventType}
+                onChange={update("eventType")}
+              >
+                <option value="" disabled>
+                  {contactFormConfig.placeholders.eventType}
+                </option>
+                {contactFormConfig.eventTypes.map((eventType) => (
+                  <option key={eventType}>{eventType}</option>
+                ))}
+              </Field>
+              <Field
+                id="contact-eventDate"
+                label={contactFormConfig.labels.eventDate}
+                name="eventDate"
+                type="date"
+                value={form.eventDate}
+                onChange={update("eventDate")}
+              />
+              <Field
+                id="contact-guests"
+                label={contactFormConfig.labels.guests}
+                name="guests"
+                type="number"
+                min="0"
+                placeholder={contactFormConfig.placeholders.guests}
+                value={form.guests}
+                onChange={update("guests")}
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-[#FFC400] text-[#111] text-2xl py-4 rounded-2xl border-4 border-[#111] shadow-[6px_6px_0_#111] hover:shadow-[2px_2px_0_#111] hover:translate-x-1 hover:translate-y-1 transition-all font-black"
-              style={BANGERS}
-            >
+            <Field
+              as="textarea"
+              id="contact-message"
+              label={contactFormConfig.labels.message}
+              className="mb-7"
+              name="message"
+              rows={4}
+              placeholder={contactFormConfig.placeholders.message}
+              value={form.message}
+              onChange={update("message")}
+            />
+            <Button variant="primary" size="lg" shape="rounded" fullWidth type="submit">
               {siteConfig.ctas.submitContact}
-            </button>
+            </Button>
           </form>
         )}
       </div>
