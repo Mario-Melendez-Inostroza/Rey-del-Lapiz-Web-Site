@@ -8,7 +8,8 @@ export const heroContent = {
     prefix: "¡Convierte Tu Evento En Una",
     highlight: "Experiencia Llena De Risas!",
   },
-  description: "Caricaturas en vivo que hacen reír a todos tus invitados y crean recuerdos únicos. El show que todo evento necesita.",
+  description:
+    "Caricaturas en vivo que hacen reír a todos tus invitados y crean recuerdos únicos. El show que todo evento necesita.",
   discoverMore: "Descubre más",
 };
 
@@ -31,7 +32,8 @@ export const sectionHeadings = {
   services: {
     eyebrow: "¿Qué ofrezco?",
     title: "Servicios",
-    description: "Caricaturas en vivo para cada tipo de evento. ¡El entretenimiento que todos recordarán!",
+    description:
+      "Caricaturas en vivo para cada tipo de evento. ¡El entretenimiento que todos recordarán!",
   },
   gallery: {
     eyebrow: "Mis trabajos",

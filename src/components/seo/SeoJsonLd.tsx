@@ -9,9 +9,7 @@ import { siteConfig } from "../../config/site";
  */
 export function SeoJsonLd() {
   const { contact } = siteConfig;
-  const sameAs = [contact.instagram].filter(
-    (url) => url && url !== "https://instagram.com/",
-  );
+  const sameAs = [contact.instagram].filter((url) => url && url !== "https://instagram.com/");
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -36,10 +34,5 @@ export function SeoJsonLd() {
   // prematuramente e inyectar HTML en la página.
   const json = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: json }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }

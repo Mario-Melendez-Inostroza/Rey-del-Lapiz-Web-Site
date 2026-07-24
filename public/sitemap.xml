@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap estático. El sitio es de una sola página: los #anclas (#servicios,
+  #galeria, ...) no son URLs separadas, así que no van en el sitemap.
+  TODO(deploy): reemplazar el dominio por el de producción.
+  Para añadir páginas nuevas en el futuro, duplica el bloque <url> con su <loc>.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.tudominio.cl/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

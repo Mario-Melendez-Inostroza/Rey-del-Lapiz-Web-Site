@@ -1,0 +1,8 @@
+# robots.txt — producción
+# Permite el rastreo completo del sitio (no hay áreas privadas ni panel admin).
+User-agent: *
+Allow: /
+
+# TODO(deploy): reemplazar el dominio por el de producción
+# (debe coincidir con el canonical de index.html / seo.ts).
+Sitemap: https://www.tudominio.cl/sitemap.xml

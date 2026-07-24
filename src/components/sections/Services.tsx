@@ -9,7 +9,11 @@ export function Services() {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 relative">
-          <ComicBurst className="absolute -top-10 left-1/2 -translate-x-1/2 w-60 opacity-[0.06]" color="#FFC400" pts={20} />
+          <ComicBurst
+            className="absolute -top-10 left-1/2 -translate-x-1/2 w-60 opacity-[0.06]"
+            color="#FFC400"
+            pts={20}
+          />
           <span
             className="inline-block bg-[#FFC400] text-[#111] font-black px-4 py-1 text-xs rounded-full border-4 border-[#111] uppercase tracking-widest mb-5"
             style={NUNITO}
@@ -38,11 +42,22 @@ export function Services() {
                 style={{ backgroundColor: svc.color }}
               >
                 <Halftone opacity={0.2} />
-                <ComicBurst className="absolute top-2 right-2 w-10 opacity-50" color="white" pts={6} />
-                <ComicBurst className="absolute bottom-1 left-2 w-7 opacity-30" color="#111" pts={6} />
+                <ComicBurst
+                  className="absolute top-2 right-2 w-10 opacity-50"
+                  color="white"
+                  pts={6}
+                />
+                <ComicBurst
+                  className="absolute bottom-1 left-2 w-7 opacity-30"
+                  color="#111"
+                  pts={6}
+                />
               </div>
 
-              <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-28 drop-shadow-2xl z-20 group-hover:-translate-y-2 transition-transform" style={{ top: "72px" }}>
+              <div
+                className="absolute left-1/2 -translate-x-1/2 -top-2 w-28 drop-shadow-2xl z-20 group-hover:-translate-y-2 transition-transform"
+                style={{ top: "72px" }}
+              >
                 <DecorativeFace v={svc.v} className="w-full" />
               </div>
 

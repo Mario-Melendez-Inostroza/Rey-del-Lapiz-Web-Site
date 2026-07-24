@@ -14,17 +14,17 @@ type CommonProps = {
 };
 
 type InputFieldProps = CommonProps & { as?: "input" } & Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  "id" | "className"
->;
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "id" | "className"
+  >;
 type TextareaFieldProps = CommonProps & { as: "textarea" } & Omit<
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-  "id" | "className"
->;
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    "id" | "className"
+  >;
 type SelectFieldProps = CommonProps & { as: "select" } & Omit<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
-  "id" | "className"
->;
+    React.SelectHTMLAttributes<HTMLSelectElement>,
+    "id" | "className"
+  >;
 
 export type FieldProps = InputFieldProps | TextareaFieldProps | SelectFieldProps;
 

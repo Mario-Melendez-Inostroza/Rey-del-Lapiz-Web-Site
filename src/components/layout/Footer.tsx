@@ -86,7 +86,10 @@ export function Footer() {
           </p>
           <div className="flex gap-2 items-center">
             {[0, 1, 2, 3, 4].map((v) => (
-              <div key={v} className="w-8 h-8 opacity-35 hover:opacity-70 transition-opacity hover:scale-125 transition-transform">
+              <div
+                key={v}
+                className="w-8 h-8 opacity-35 hover:opacity-70 transition-opacity hover:scale-125 transition-transform"
+              >
                 <DecorativeFace v={v} className="w-full h-full" />
               </div>
             ))}

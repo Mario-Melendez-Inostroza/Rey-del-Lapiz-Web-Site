@@ -20,7 +20,10 @@ export function About() {
                   <circle cx="50" cy="36" r="22" fill="currentColor" />
                   <ellipse cx="50" cy="84" rx="32" ry="24" fill="currentColor" />
                 </svg>
-                <span className="text-xs font-black tracking-widest uppercase text-center px-4" style={NUNITO}>
+                <span
+                  className="text-xs font-black tracking-widest uppercase text-center px-4"
+                  style={NUNITO}
+                >
                   {aboutContent.imageLabel}
                 </span>
               </div>
@@ -51,7 +54,10 @@ export function About() {
             <p className="text-[#111]/75 text-lg font-bold mb-4 leading-relaxed" style={NUNITO}>
               {aboutContent.paragraphs[0]}
             </p>
-            <p className="text-[#111]/60 text-base font-semibold mb-10 leading-relaxed" style={NUNITO}>
+            <p
+              className="text-[#111]/60 text-base font-semibold mb-10 leading-relaxed"
+              style={NUNITO}
+            >
               {aboutContent.paragraphs[1]}
             </p>
 

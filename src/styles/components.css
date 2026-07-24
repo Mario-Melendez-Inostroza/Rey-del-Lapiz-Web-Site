@@ -9,6 +9,24 @@
   transform: translate(var(--nb-t), var(--nb-t));
 }
 
-.nb-btn--sm { --nb-x: 3px; --nb-y: 3px; --nb-hx: 1px; --nb-hy: 1px; --nb-t: 1px; }
-.nb-btn--md { --nb-x: 6px; --nb-y: 6px; --nb-hx: 2px; --nb-hy: 2px; --nb-t: 4px; }
-.nb-btn--lg { --nb-x: 8px; --nb-y: 8px; --nb-hx: 2px; --nb-hy: 2px; --nb-t: 6px; }
+.nb-btn--sm {
+  --nb-x: 3px;
+  --nb-y: 3px;
+  --nb-hx: 1px;
+  --nb-hy: 1px;
+  --nb-t: 1px;
+}
+.nb-btn--md {
+  --nb-x: 6px;
+  --nb-y: 6px;
+  --nb-hx: 2px;
+  --nb-hy: 2px;
+  --nb-t: 4px;
+}
+.nb-btn--lg {
+  --nb-x: 8px;
+  --nb-y: 8px;
+  --nb-hx: 2px;
+  --nb-hy: 2px;
+  --nb-t: 6px;
+}

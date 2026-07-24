@@ -29,7 +29,12 @@ export function DecorativeFace({ v = 0, className = "" }: { v?: number; classNam
       <circle cx="84" cy="67" r="8" fill="#222" />
       <circle cx="43" cy="64" r="3" fill="white" />
       <circle cx="87" cy="64" r="3" fill="white" />
-      <path d="M34 90 Q60 116 86 90 L83 82 Q60 104 37 82 Z" fill="#CC3300" stroke="#111" strokeWidth="2" />
+      <path
+        d="M34 90 Q60 116 86 90 L83 82 Q60 104 37 82 Z"
+        fill="#CC3300"
+        stroke="#111"
+        strokeWidth="2"
+      />
       <path d="M38 90 Q60 108 82 90" fill="white" stroke="none" />
       <path d="M47 91 L73 91" stroke="#EEE" strokeWidth="3" />
       <path d="M28 47 Q42 38 54 45" stroke={hc} strokeWidth="5" fill="none" strokeLinecap="round" />
@@ -39,14 +44,37 @@ export function DecorativeFace({ v = 0, className = "" }: { v?: number; classNam
       <rect x="10" y="8" width="100" height="26" rx="6" fill={hc} />
       <ellipse cx="40" cy="65" rx="14" ry="16" fill="white" stroke="#111" strokeWidth="2.5" />
       <ellipse cx="80" cy="65" rx="14" ry="16" fill="white" stroke="#111" strokeWidth="2.5" />
-      <rect x="24" y="52" width="32" height="26" rx="11" fill="none" stroke="#111" strokeWidth="4" />
-      <rect x="64" y="52" width="32" height="26" rx="11" fill="none" stroke="#111" strokeWidth="4" />
+      <rect
+        x="24"
+        y="52"
+        width="32"
+        height="26"
+        rx="11"
+        fill="none"
+        stroke="#111"
+        strokeWidth="4"
+      />
+      <rect
+        x="64"
+        y="52"
+        width="32"
+        height="26"
+        rx="11"
+        fill="none"
+        stroke="#111"
+        strokeWidth="4"
+      />
       <line x1="56" y1="65" x2="64" y2="65" stroke="#111" strokeWidth="4" />
       <circle cx="42" cy="67" r="7.5" fill="#1B5E20" />
       <circle cx="82" cy="67" r="7.5" fill="#1B5E20" />
       <circle cx="45" cy="64" r="2.5" fill="white" />
       <circle cx="85" cy="64" r="2.5" fill="white" />
-      <path d="M30 91 Q60 116 90 91 L87 83 Q60 106 33 83 Z" fill="#CC3300" stroke="#111" strokeWidth="2" />
+      <path
+        d="M30 91 Q60 116 90 91 L87 83 Q60 106 33 83 Z"
+        fill="#CC3300"
+        stroke="#111"
+        strokeWidth="2"
+      />
       <path d="M35 91 Q60 111 85 91" fill="white" stroke="none" />
       <path d="M45 92 L75 92" stroke="#DDD" strokeWidth="3" />
       <path d="M28 47 Q40 40 52 46" stroke={hc} strokeWidth="5" fill="none" strokeLinecap="round" />
@@ -62,19 +90,48 @@ export function DecorativeFace({ v = 0, className = "" }: { v?: number; classNam
       <circle cx="85" cy="66" r="2.5" fill="white" />
       <path d="M26 44 Q40 36 52 43" stroke={hc} strokeWidth="6" fill="none" strokeLinecap="round" />
       <path d="M94 40 Q80 35 68 41" stroke={hc} strokeWidth="4" fill="none" strokeLinecap="round" />
-      <path d="M38 92 Q66 108 85 88" stroke="#111" strokeWidth="4" fill="none" strokeLinecap="round" />
+      <path
+        d="M38 92 Q66 108 85 88"
+        stroke="#111"
+        strokeWidth="4"
+        fill="none"
+        strokeLinecap="round"
+      />
     </>,
     <>
       <ellipse cx="60" cy="20" rx="46" ry="17" fill={hc} />
-      <ellipse cx="30" cy="26" rx="14" ry="20" fill={hc} stroke="#111" strokeWidth="2" transform="rotate(-16 30 26)" />
-      <ellipse cx="90" cy="26" rx="14" ry="20" fill={hc} stroke="#111" strokeWidth="2" transform="rotate(16 90 26)" />
+      <ellipse
+        cx="30"
+        cy="26"
+        rx="14"
+        ry="20"
+        fill={hc}
+        stroke="#111"
+        strokeWidth="2"
+        transform="rotate(-16 30 26)"
+      />
+      <ellipse
+        cx="90"
+        cy="26"
+        rx="14"
+        ry="20"
+        fill={hc}
+        stroke="#111"
+        strokeWidth="2"
+        transform="rotate(16 90 26)"
+      />
       <ellipse cx="40" cy="63" rx="15" ry="18" fill="white" stroke="#111" strokeWidth="3" />
       <ellipse cx="80" cy="63" rx="15" ry="18" fill="white" stroke="#111" strokeWidth="3" />
       <circle cx="42" cy="65" r="9" fill="#333" />
       <circle cx="82" cy="65" r="9" fill="#333" />
       <circle cx="45" cy="61" r="3" fill="white" />
       <circle cx="85" cy="61" r="3" fill="white" />
-      <path d="M34 90 Q60 118 86 90 L83 81 Q60 106 37 81 Z" fill="#CC3300" stroke="#111" strokeWidth="2" />
+      <path
+        d="M34 90 Q60 118 86 90 L83 81 Q60 106 37 81 Z"
+        fill="#CC3300"
+        stroke="#111"
+        strokeWidth="2"
+      />
       <path d="M38 90 Q60 108 82 90" fill="white" stroke="none" />
       <path d="M44 91 L76 91" stroke="#EEE" strokeWidth="3" />
       <path d="M26 43 Q40 34 54 42" stroke={hc} strokeWidth="5" fill="none" strokeLinecap="round" />

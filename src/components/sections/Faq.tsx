@@ -34,14 +34,18 @@ export function Faq() {
                 className="w-full flex items-start justify-between gap-4 p-5 text-left"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="font-black text-[#111] text-base md:text-lg leading-snug" style={NUNITO}>
+                <span
+                  className="font-black text-[#111] text-base md:text-lg leading-snug"
+                  style={NUNITO}
+                >
                   {faq.q}
                 </span>
                 <div className="shrink-0 w-9 h-9 rounded-full bg-[#FFC400] border-2 border-[#111] flex items-center justify-center mt-0.5">
-                  {open === i
-                    ? <ChevronUp size={16} className="text-[#111]" />
-                    : <ChevronDown size={16} className="text-[#111]" />
-                  }
+                  {open === i ? (
+                    <ChevronUp size={16} className="text-[#111]" />
+                  ) : (
+                    <ChevronDown size={16} className="text-[#111]" />
+                  )}
                 </div>
               </button>
               {open === i && (

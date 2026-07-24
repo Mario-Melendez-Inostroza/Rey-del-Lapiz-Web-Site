@@ -21,14 +21,16 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#111111]/96 backdrop-blur shadow-[0_4px_0_0_#FFC400]"
-          : "bg-transparent"
+        scrolled ? "bg-[#111111]/96 backdrop-blur shadow-[0_4px_0_0_#FFC400]" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16 md:h-20">
         <a href="#inicio" className="flex items-center gap-2 group">
-          <ComicBurst className="w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform" color="#FFC400" pts={8} />
+          <ComicBurst
+            className="w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform"
+            color="#FFC400"
+            pts={8}
+          />
           <span className="text-[#FFC400] text-2xl md:text-3xl leading-none" style={BANGERS}>
             {brandConfig.name}
           </span>
