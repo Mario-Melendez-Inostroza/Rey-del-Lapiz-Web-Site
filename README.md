@@ -28,4 +28,4 @@ npm run dev
 - CLAUDE.md → contexto permanente para Claude Code
 - AUDIT.md → auditoría técnica actual
 - ROADMAP.md → plan de implementación
-- ADR.md → decisiones arquitectónicas
+- decisions.md → decisiones arquitectónicas
