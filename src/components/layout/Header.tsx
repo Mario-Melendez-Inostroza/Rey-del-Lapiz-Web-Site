@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 
 import { ComicBurst } from "../brand";
@@ -7,16 +7,11 @@ import { brandConfig } from "../../config/brand";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { navigationItems } from "../../data";
+import { useScrolled } from "../../hooks/useScrolled";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
+  const scrolled = useScrolled(50);
 
   return (
     <header
