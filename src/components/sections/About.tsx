@@ -1,4 +1,5 @@
 import { Halftone, SpeechBubble, ZigZagBorder } from "../brand";
+import { Reveal } from "../ui/Reveal";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { aboutContent } from "../../data";
 
@@ -8,7 +9,7 @@ export function About() {
       <Halftone opacity={0.18} />
       <ZigZagBorder top color1="var(--color-primary)" color2="var(--color-ink)" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <Reveal className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div className="flex justify-center relative">
             {/* Iluminación detrás del marco: halo elegante que "respira" (retroiluminación). */}
@@ -68,7 +69,7 @@ export function About() {
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       <ZigZagBorder top={false} color1="var(--color-primary)" color2="var(--color-ink)" />
     </section>

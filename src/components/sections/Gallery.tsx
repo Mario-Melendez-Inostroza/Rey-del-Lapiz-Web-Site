@@ -1,5 +1,6 @@
 import { Halftone, InstagramIcon, ZigZagBorder } from "../brand";
 import { Button } from "../ui/Button";
+import { Reveal } from "../ui/Reveal";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { galleryItems, sectionHeadings } from "../../data";
@@ -10,7 +11,7 @@ export function Gallery() {
       <Halftone opacity={0.06} />
       <ZigZagBorder top />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <Reveal className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span
             className="inline-block bg-accent text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
@@ -71,7 +72,7 @@ export function Gallery() {
             {siteConfig.ctas.viewAllInstagram}
           </Button>
         </div>
-      </div>
+      </Reveal>
 
       <ZigZagBorder top={false} />
     </section>

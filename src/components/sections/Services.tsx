@@ -1,4 +1,5 @@
 import { ComicBurst, Halftone } from "../brand";
+import { Reveal } from "../ui/Reveal";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { sectionHeadings, services } from "../../data";
 
@@ -7,7 +8,7 @@ export function Services() {
     <section id="servicios" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <Reveal className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 relative">
           <ComicBurst
             className="absolute -top-10 left-1/2 -translate-x-1/2 w-60 opacity-[0.06]"
@@ -68,7 +69,7 @@ export function Services() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

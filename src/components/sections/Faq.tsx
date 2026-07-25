@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { ComicBurst, Halftone, ZigZagBorder } from "../brand";
+import { Reveal } from "../ui/Reveal";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { faqItems, sectionHeadings } from "../../data";
 
@@ -13,7 +14,7 @@ export function Faq() {
       <Halftone opacity={0.18} />
       <ZigZagBorder top />
 
-      <div className="max-w-4xl mx-auto px-6">
+      <Reveal className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-14">
           <ComicBurst className="inline-block w-20 mb-4" color="var(--color-ink)" pts={10} />
           <h2 className="text-5xl md:text-7xl text-ink mb-4" style={BANGERS}>
@@ -66,7 +67,7 @@ export function Faq() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
 
       <ZigZagBorder top={false} />
     </section>

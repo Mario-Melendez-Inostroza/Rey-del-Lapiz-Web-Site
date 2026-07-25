@@ -4,6 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Halftone, InstagramIcon, WhatsAppIcon } from "../brand";
 import { Button } from "../ui/Button";
 import { Field } from "../ui/Field";
+import { Reveal } from "../ui/Reveal";
 import { contactFormConfig } from "../../config/editableFields";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -77,7 +78,7 @@ export function Contact() {
     <section id="contacto" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
-      <div className="max-w-4xl mx-auto px-6 relative">
+      <Reveal className="max-w-4xl mx-auto px-6 relative">
         <div className="text-center mb-12">
           <span
             className="inline-block bg-whatsapp text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
@@ -232,7 +233,7 @@ export function Contact() {
             </Button>
           </form>
         )}
-      </div>
+      </Reveal>
     </section>
   );
 }

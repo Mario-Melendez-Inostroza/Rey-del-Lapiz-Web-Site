@@ -1,4 +1,5 @@
 import { Halftone } from "../brand";
+import { Reveal } from "../ui/Reveal";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { processSteps, sectionHeadings } from "../../data";
 
@@ -7,7 +8,7 @@ export function Process() {
     <section id="como-funciona" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <Reveal className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <span
             className="inline-block bg-blue text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
@@ -43,7 +44,7 @@ export function Process() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
