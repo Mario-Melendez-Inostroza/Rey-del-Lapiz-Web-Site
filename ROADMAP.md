@@ -28,8 +28,8 @@ Plan de implementación priorizado, en base a `AUDIT.md`. Se ejecuta una fase a 
 
 ## FASE 4 — Detalles premium
 
-- [ ] Animaciones de nivel: reveal on-scroll y/o portar el patrón de scroll sincronizado de `GBIKE/Gallery.tsx`; respetar `prefers-reduced-motion`. _(`motion`/Framer se eliminó en la poda de Fase 2 — decidir CSS/Tailwind vs. re-añadir la dependencia.)_
-- [ ] Feedback rico: estados loading/success/error, scroll-spy en nav activa. _(`sonner` se eliminó en la poda de Fase 2 — decidir toast propio mínimo vs. re-añadir la dependencia.)_
-- [ ] Optimización fina: `React.lazy`/`Suspense` para secciones pesadas, memoización puntual de geometría SVG (`DecorativeFace`/`ComicBurst`), preconnect/preload de fuentes.
+- [x] Animaciones de nivel: reveal on-scroll con `<Reveal>` + `useInView`, CSS puro respetando `prefers-reduced-motion`. _(Resuelto sin re-añadir `motion`/Framer. El scroll sincronizado de `GBIKE/Gallery.tsx` no se portó — era un OR, opcional.)_
+- [ ] Feedback rico: scroll-spy en nav activa ✅ (hook `useScrollSpy` + `aria-current` en Header). **Pendiente:** estados loading/success/error del formulario → etapa posterior (form aún abre WhatsApp; `sonner` se podó, decidir toast propio vs. re-añadir).
+- [x] Optimización fina: fuentes cargadas vía `<link>` en `index.html` (descubrimiento temprano, LCP) + `loading="lazy"` selectivo. `React.lazy`/`Suspense` evaluado y **descartado** (bundle ~60KB gzip, todas las secciones montan en una página → solo añadiría waterfall/CLS). Memoización de geometría SVG no necesaria por ahora.
 
 > **Extensión futura opcional (fuera del alcance por defecto del roadmap):** panel admin dirigido por esquema + backend de formulario (API serverless + persistencia), estilo GBIKE. Solo si un cliente concreto necesita capa dinámica; contradice la identidad de template estático y simple (ver `docs/ARCHITECTURE.md` §7), por lo que es una **decisión de producto**, no un paso obligatorio.
