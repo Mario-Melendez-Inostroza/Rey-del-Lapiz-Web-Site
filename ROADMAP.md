@@ -23,8 +23,8 @@ Plan de implementación priorizado, en base a `AUDIT.md`. Se ejecuta una fase a 
 ## FASE 3 — Mejoras visuales (consistencia de diseño)
 
 - [x] Unificar design tokens: fuente única en `styles/tokens.css` (`@theme` Tailwind v4); chrome sin hex de marca. Tipografía referencia tokens vía `typography.ts` (T2). Eliminados el `theme.css` shadcn y los `colors`/`typography` de `brand.ts`. _(Adelantado antes que el resto de Fase 3.)_
-- [ ] Accesibilidad de diseño: `aria-expanded`/`controls` en FAQ, `htmlFor` en labels, `:focus-visible`, `scroll-behavior: smooth`, `alt` descriptivos.
-- [ ] Imágenes reales optimizadas en galería/hero (WebP, `loading=lazy`, `width`/`height`, preload del LCP) reemplazando placeholders de color.
+- [x] Accesibilidad de diseño: `aria-expanded`/`controls` en FAQ, `htmlFor` en labels, `:focus-visible`, `scroll-behavior: smooth`, `alt` descriptivos.
+- [x] Imágenes reales optimizadas en galería/hero (WebP, `loading=lazy`, `width`/`height`) reemplazando placeholders de color. _(Fotos reales del artista; másters pesados fuera de `public/` en `raw-assets/`. Pendiente micro-opt de preload del LCP → Fase 4.)_
 
 ## FASE 4 — Detalles premium
 
