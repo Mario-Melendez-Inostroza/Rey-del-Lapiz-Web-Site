@@ -183,7 +183,7 @@ export function Hero() {
 
               {/* Destellos breves que acompañan el paso del lápiz por cada zona. */}
               <span
-                className="hero-cari-spark absolute left-[44%] top-[10%] w-6 md:w-7"
+                className="hero-cari-spark absolute left-[56%] top-[10%] w-6 md:w-7"
                 style={{ "--spark-d": "1.2s" } as CSSProperties}
               >
                 <Sparkle className="w-full" color="white" />
@@ -195,19 +195,19 @@ export function Hero() {
                 <Sparkle className="w-full" color="white" />
               </span>
               <span
-                className="hero-cari-spark absolute left-[38%] top-[46%] w-5 md:w-6"
+                className="hero-cari-spark absolute left-[62%] top-[46%] w-5 md:w-6"
                 style={{ "--spark-d": "2.72s" } as CSSProperties}
               >
                 <Sparkle className="w-full" color="white" />
               </span>
               <span
-                className="hero-cari-spark absolute left-[70%] top-[61%] w-8 md:w-10"
+                className="hero-cari-spark absolute left-[30%] top-[61%] w-8 md:w-10"
                 style={{ "--spark-d": "3.22s" } as CSSProperties}
               >
                 <MotionLines className="w-full" color="white" />
               </span>
               <span
-                className="hero-cari-spark absolute left-[36%] top-[80%] w-5 md:w-6"
+                className="hero-cari-spark absolute left-[64%] top-[80%] w-5 md:w-6"
                 style={{ "--spark-d": "3.72s" } as CSSProperties}
               >
                 <Sparkle className="w-full" color="white" />

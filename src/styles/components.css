@@ -117,54 +117,54 @@
 @keyframes hero-cari-pencil {
   0% {
     opacity: 0;
-    left: 88%;
+    left: 12%;
     top: 108%;
-    transform: translate(-50%, -85%) rotate(-58deg);
+    transform: translate(-50%, -85%) rotate(58deg);
   }
   6% {
     opacity: 1;
   }
   14% {
-    left: 44%;
+    left: 56%;
     top: 12%;
-    transform: translate(-50%, -85%) rotate(-48deg);
+    transform: translate(-50%, -85%) rotate(48deg);
   }
   26% {
-    left: 39%;
+    left: 61%;
     top: 9%;
-    transform: translate(-50%, -85%) rotate(-52deg);
+    transform: translate(-50%, -85%) rotate(52deg);
   }
   40% {
     left: 50%;
     top: 33%;
-    transform: translate(-50%, -85%) rotate(-45deg);
+    transform: translate(-50%, -85%) rotate(45deg);
   }
   56% {
-    left: 39%;
+    left: 61%;
     top: 47%;
-    transform: translate(-50%, -85%) rotate(-43deg);
+    transform: translate(-50%, -85%) rotate(43deg);
   }
   70% {
-    left: 70%;
+    left: 30%;
     top: 63%;
-    transform: translate(-50%, -85%) rotate(-50deg);
+    transform: translate(-50%, -85%) rotate(50deg);
   }
   84% {
-    left: 37%;
+    left: 63%;
     top: 80%;
-    transform: translate(-50%, -85%) rotate(-46deg);
+    transform: translate(-50%, -85%) rotate(46deg);
   }
   92% {
     opacity: 1;
-    left: 58%;
+    left: 42%;
     top: 72%;
-    transform: translate(-50%, -85%) rotate(-49deg);
+    transform: translate(-50%, -85%) rotate(49deg);
   }
   100% {
     opacity: 0;
-    left: 104%;
+    left: -4%;
     top: 96%;
-    transform: translate(-50%, -85%) rotate(-58deg);
+    transform: translate(-50%, -85%) rotate(58deg);
   }
 }
 
