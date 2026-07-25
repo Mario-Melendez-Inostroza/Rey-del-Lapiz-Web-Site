@@ -31,6 +31,8 @@ export function Header() {
           <img
             src={logoConfig.horizontal}
             alt={logoConfig.alt}
+            width={400}
+            height={200}
             className="h-14 md:h-16 w-auto group-hover:scale-105 transition-transform"
           />
         </a>
@@ -70,13 +72,18 @@ export function Header() {
           className="lg:hidden text-white p-2"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden bg-ink border-t-4 border-primary px-6 py-6 flex flex-col gap-5">
+        <div
+          id="mobile-menu"
+          className="lg:hidden bg-ink border-t-4 border-primary px-6 py-6 flex flex-col gap-5"
+        >
           {navigationItems.map((l) => {
             const active = l.href.slice(1) === activeId;
             return (

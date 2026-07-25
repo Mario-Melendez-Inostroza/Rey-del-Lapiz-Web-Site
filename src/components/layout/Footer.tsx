@@ -17,8 +17,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
-            <img src={logoConfig.full} alt={logoConfig.alt} className="w-40 h-auto mb-4" />
-            <p className="text-white/40 text-sm font-semibold leading-relaxed" style={NUNITO}>
+            <img
+              src={logoConfig.full}
+              alt={logoConfig.alt}
+              width={400}
+              height={266}
+              className="w-40 h-auto mb-4"
+            />
+            <p className="text-white/60 text-sm font-semibold leading-relaxed" style={NUNITO}>
               {siteConfig.footer.description[0]}
               <br />
               {siteConfig.footer.description[1]}
@@ -26,15 +32,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
+            <h3 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
               {siteConfig.footer.navigationTitle}
-            </h4>
+            </h3>
             <div className="flex flex-col gap-2">
               {navigationItems.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-white/40 hover:text-primary font-bold text-sm transition-colors"
+                  className="text-white/60 hover:text-primary font-bold text-sm transition-colors"
                   style={NUNITO}
                 >
                   {l.label}
@@ -44,9 +50,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
+            <h3 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
               {siteConfig.footer.socialTitle}
-            </h4>
+            </h3>
             <div className="flex gap-3">
               <a
                 href={whatsappLink.href}
@@ -84,7 +90,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/8 pt-6 flex items-center justify-center">
-          <p className="text-white/25 text-xs font-semibold" style={NUNITO}>
+          <p className="text-white/55 text-xs font-semibold" style={NUNITO}>
             {siteConfig.footer.copyright}
           </p>
         </div>

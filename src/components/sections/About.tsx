@@ -53,7 +53,7 @@ export function About() {
             <p className="text-ink/75 text-lg font-bold mb-4 leading-relaxed" style={NUNITO}>
               {aboutContent.paragraphs[0]}
             </p>
-            <p className="text-ink/60 text-base font-semibold mb-10 leading-relaxed" style={NUNITO}>
+            <p className="text-ink/70 text-base font-semibold mb-10 leading-relaxed" style={NUNITO}>
               {aboutContent.paragraphs[1]}
             </p>
 

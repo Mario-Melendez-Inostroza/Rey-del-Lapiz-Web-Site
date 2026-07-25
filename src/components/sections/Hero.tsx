@@ -175,11 +175,15 @@ export function Hero() {
                 draggable={false}
               />
 
-              {/* El lápiz da los últimos retoques (protagonista de la ACCIÓN, no de la obra). */}
-              <Pencil
-                className="hero-cari-pencil absolute z-20 w-8 md:w-10 pointer-events-none"
-                color="var(--color-primary)"
-              />
+              {/* El lápiz da los últimos retoques (protagonista de la ACCIÓN, no de la obra).
+                  Va dentro de un "carro" del tamaño del panel que anima solo transform (GPU);
+                  el lápiz dentro anima rotación/opacidad. Mismo movimiento, composited. */}
+              <span className="hero-cari-carriage absolute inset-0 z-20 pointer-events-none">
+                <Pencil
+                  className="hero-cari-pencil absolute left-0 top-0 w-8 md:w-10"
+                  color="var(--color-primary)"
+                />
+              </span>
 
               {/* Destellos breves que acompañan el paso del lápiz por cada zona. */}
               <span

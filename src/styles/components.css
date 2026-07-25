@@ -86,6 +86,11 @@
   /* La animación de la caricatura NO corre al cargar, sino cuando el caballete entra en
      pantalla (clase `hero-anim-run` que añade el hook useInView). Así en móvil, donde la
      caricatura está más abajo, se reproduce al hacer scroll hasta ella. */
+  /* El "carro" mueve la POSICIÓN con transform:translate (composited/GPU); el lápiz solo
+     rota y aparece. Mismo movimiento que antes, sin animar left/top (no-composited). */
+  .hero-anim-run .hero-cari-carriage {
+    animation: hero-cari-carriage 3.6s ease-in-out 0.7s 1 both;
+  }
   .hero-anim-run .hero-cari-pencil {
     animation: hero-cari-pencil 3.6s ease-in-out 0.7s 1 both;
   }
@@ -112,58 +117,73 @@
   }
 }
 
-/* El lápiz se ancla por su punta (translate) y recorre zonas por left/top (% del
-   panel, así escala con la caricatura); la rotación varía levemente = gesto natural. */
+/* Posición del lápiz: recorre el panel por % (así escala con la caricatura) usando
+   transform:translate sobre el "carro" (tamaño del panel) → animación composited/GPU.
+   Los % equivalen exactamente al antiguo left/top. Dibuja de derecha a izquierda. */
+@keyframes hero-cari-carriage {
+  0% {
+    transform: translate(12%, 108%);
+  }
+  14% {
+    transform: translate(56%, 12%);
+  }
+  26% {
+    transform: translate(61%, 9%);
+  }
+  40% {
+    transform: translate(50%, 33%);
+  }
+  56% {
+    transform: translate(61%, 47%);
+  }
+  70% {
+    transform: translate(30%, 63%);
+  }
+  84% {
+    transform: translate(63%, 80%);
+  }
+  92% {
+    transform: translate(42%, 72%);
+  }
+  100% {
+    transform: translate(-4%, 96%);
+  }
+}
+
+/* El lápiz se ancla por su punta (translate) y se inclina (rotate) mientras aparece/
+   desaparece (opacity). La rotación varía levemente = gesto natural. Solo transform/opacity. */
 @keyframes hero-cari-pencil {
   0% {
     opacity: 0;
-    left: 12%;
-    top: 108%;
     transform: translate(-50%, -85%) rotate(58deg);
   }
   6% {
     opacity: 1;
   }
   14% {
-    left: 56%;
-    top: 12%;
     transform: translate(-50%, -85%) rotate(48deg);
   }
   26% {
-    left: 61%;
-    top: 9%;
     transform: translate(-50%, -85%) rotate(52deg);
   }
   40% {
-    left: 50%;
-    top: 33%;
     transform: translate(-50%, -85%) rotate(45deg);
   }
   56% {
-    left: 61%;
-    top: 47%;
     transform: translate(-50%, -85%) rotate(43deg);
   }
   70% {
-    left: 30%;
-    top: 63%;
     transform: translate(-50%, -85%) rotate(50deg);
   }
   84% {
-    left: 63%;
-    top: 80%;
     transform: translate(-50%, -85%) rotate(46deg);
   }
   92% {
     opacity: 1;
-    left: 42%;
-    top: 72%;
     transform: translate(-50%, -85%) rotate(49deg);
   }
   100% {
     opacity: 0;
-    left: -4%;
-    top: 96%;
     transform: translate(-50%, -85%) rotate(58deg);
   }
 }
