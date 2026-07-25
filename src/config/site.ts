@@ -3,19 +3,17 @@ import type { SiteConfig } from "../types/site";
 export const siteConfig: SiteConfig = {
   name: "El Rey Del Lápiz",
   slogan: "Caricaturas en vivo para eventos únicos.",
-  locationLabel: "Artista de Caricaturas en Vivo · Chile",
+  locationLabel: "Artista de Caricaturas en Vivo",
   contact: {
-    // TODO(content-pass): valores placeholder — completar con los datos reales.
-    // whatsapp: URL wa.me con código de país, p. ej. "https://wa.me/569XXXXXXXX".
-    // instagram: URL con el handle real, p. ej. "https://instagram.com/tuusuario".
-    // El formulario, los CTAs y el JSON-LD ya funcionan y se completan solos al rellenarlos.
-    whatsapp: "https://wa.me/",
-    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/56950193025",
+    instagram: "https://www.instagram.com/elreydellapiz/",
+    tiktok: "https://www.tiktok.com/@elreydellapizoficial",
+    phone: "+56 9 5019 3025",
+    // TODO(content-pass): completar con los datos reales cuando estén.
     email: "",
     city: "[Tu Ciudad], Chile",
     address: "",
     hours: "",
-    phone: "",
   },
   ctas: {
     reserveShort: "Reservar",
@@ -25,8 +23,8 @@ export const siteConfig: SiteConfig = {
     submitContact: "¡Enviar Consulta! 🎨",
   },
   footer: {
-    copyright: "© 2025 El Rey Del Lápiz. Todos los derechos reservados.",
-    description: ["Caricaturas en vivo para eventos únicos.", "Risas garantizadas en cada trazo."],
+    copyright: "© 2026 El Rey Del Lápiz. Todos los derechos reservados.",
+    description: ["Caricaturas en vivo para eventos únicos.", "Risas garantizadas."],
     navigationTitle: "Navegación",
     socialTitle: "Sígueme",
   },

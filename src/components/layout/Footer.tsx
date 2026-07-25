@@ -1,7 +1,5 @@
-import { MessageCircle } from "lucide-react";
-
-import { ComicBurst, DecorativeFace, Halftone, InstagramIcon } from "../brand";
-import { brandConfig } from "../../config/brand";
+import { Halftone, InstagramIcon, TikTokIcon, WhatsAppIcon } from "../brand";
+import { logoConfig } from "../../config/logo";
 import { siteConfig } from "../../config/site";
 import { socialLinks } from "../../config/social";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -9,6 +7,7 @@ import { navigationItems } from "../../data";
 
 const whatsappLink = socialLinks.find((link) => link.id === "whatsapp")!;
 const instagramLink = socialLinks.find((link) => link.id === "instagram")!;
+const tiktokLink = socialLinks.find((link) => link.id === "tiktok")!;
 
 export function Footer() {
   return (
@@ -18,12 +17,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <ComicBurst className="w-10 h-10 shrink-0" color="var(--color-primary)" pts={8} />
-              <span className="text-primary text-3xl leading-none" style={BANGERS}>
-                {brandConfig.name}
-              </span>
-            </div>
+            <img src={logoConfig.full} alt={logoConfig.alt} className="w-40 h-auto mb-4" />
             <p className="text-white/40 text-sm font-semibold leading-relaxed" style={NUNITO}>
               {siteConfig.footer.description[0]}
               <br />
@@ -53,15 +47,15 @@ export function Footer() {
             <h4 className="text-primary font-black mb-5 text-xl" style={BANGERS}>
               {siteConfig.footer.socialTitle}
             </h4>
-            <div className="flex gap-3 mb-5">
+            <div className="flex gap-3">
               <a
                 href={whatsappLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-whatsapp border-2 border-border rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_var(--color-border)]"
+                className="w-12 h-12 bg-whatsapp text-white border-2 border-border rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_var(--color-border)]"
                 aria-label={whatsappLink.ariaLabel}
               >
-                <MessageCircle size={20} className="text-white" />
+                <WhatsAppIcon size={20} />
               </a>
               <a
                 href={instagramLink.href}
@@ -76,27 +70,23 @@ export function Footer() {
               >
                 <InstagramIcon size={20} />
               </a>
+              <a
+                href={tiktokLink.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white text-ink border-2 border-border rounded-xl flex items-center justify-center hover:scale-110 transition-transform shadow-[3px_3px_0_var(--color-border)]"
+                aria-label={tiktokLink.ariaLabel}
+              >
+                <TikTokIcon size={20} />
+              </a>
             </div>
-            <p className="text-white/30 text-xs font-semibold" style={NUNITO}>
-              {siteConfig.contact.city}
-            </p>
           </div>
         </div>
 
-        <div className="border-t border-white/8 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/8 pt-6 flex items-center justify-center">
           <p className="text-white/25 text-xs font-semibold" style={NUNITO}>
             {siteConfig.footer.copyright}
           </p>
-          <div className="flex gap-2 items-center">
-            {[0, 1, 2, 3, 4].map((v) => (
-              <div
-                key={v}
-                className="w-8 h-8 opacity-35 hover:opacity-70 transition-opacity hover:scale-125 transition-transform"
-              >
-                <DecorativeFace v={v} className="w-full h-full" />
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

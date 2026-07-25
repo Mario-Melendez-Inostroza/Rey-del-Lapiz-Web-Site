@@ -9,12 +9,16 @@ export type Service = {
   title: string;
   desc: string;
   color: string;
-  v: number;
 };
 
 export type GalleryItem = {
-  h: string;
+  /** Ruta de la imagen en `public/images/gallery/`. */
+  src: string;
+  /** Texto para el overlay y el `alt` accesible. */
   label: string;
+  /** Dimensiones intrínsecas (px) para reservar espacio y evitar CLS. */
+  w: number;
+  h: number;
 };
 
 export type FaqItem = {
@@ -23,16 +27,14 @@ export type FaqItem = {
 };
 
 export type ProcessStep = {
-  num: string;
   title: string;
   desc: string;
   color: string;
-  fg: string;
   Icon: LucideIcon;
 };
 
 export type SocialLink = {
-  id: "whatsapp" | "instagram";
+  id: "whatsapp" | "instagram" | "tiktok";
   label: string;
   href: string;
   ariaLabel: string;
@@ -41,6 +43,7 @@ export type SocialLink = {
 export type ContactInfo = {
   whatsapp: string;
   instagram: string;
+  tiktok: string;
   email: string;
   city: string;
   address: string;
@@ -71,7 +74,6 @@ export type SiteConfig = {
 export type BrandConfig = {
   name: string;
   claim: string;
-  galleryCardTints: string[];
 };
 
 export type SEOConfig = {
@@ -89,4 +91,17 @@ export type SEOConfig = {
     description: string;
     image: string;
   };
+};
+
+export type LogoConfig = {
+  /** Logo completo (ilustración + wordmark), formato vertical. Para Hero y Footer. */
+  full: string;
+  /** Lockup horizontal (símbolo + wordmark en línea). Para el Header y barras. */
+  horizontal: string;
+  /** Isotipo: solo el símbolo, sin texto. Para tamaños pequeños. */
+  symbol: string;
+  /** Favicon (se enlaza en el `<head>`). */
+  favicon: string;
+  /** Texto alternativo accesible del logo. */
+  alt: string;
 };

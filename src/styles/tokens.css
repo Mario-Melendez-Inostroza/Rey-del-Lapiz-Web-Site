@@ -44,6 +44,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Scroll suave para la navegación por anclas, salvo si el usuario prefiere menos movimiento. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     @apply bg-ink text-white;
   }

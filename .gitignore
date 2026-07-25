@@ -1,3 +1,5 @@
 node_modules
 dist/
 *.tsbuildinfo
+# Originales pesados (no se despliegan; solo fuente para optimizar)
+raw-assets/

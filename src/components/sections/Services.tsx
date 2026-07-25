@@ -1,4 +1,4 @@
-import { ComicBurst, DecorativeFace, Halftone } from "../brand";
+import { ComicBurst, Halftone } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { sectionHeadings, services } from "../../data";
 
@@ -35,10 +35,10 @@ export function Services() {
           {services.map((svc, i) => (
             <div
               key={i}
-              className="relative bg-surface border-4 border-border rounded-3xl overflow-visible shadow-[8px_8px_0_var(--color-primary)] hover:shadow-[3px_3px_0_var(--color-primary)] hover:translate-x-1.5 hover:translate-y-1.5 transition-all group"
+              className="relative bg-surface border-4 border-border rounded-3xl overflow-hidden shadow-[8px_8px_0_var(--color-primary)] hover:shadow-[3px_3px_0_var(--color-primary)] hover:translate-x-1.5 hover:translate-y-1.5 transition-all group"
             >
               <div
-                className="h-36 rounded-t-2xl flex items-center justify-center relative overflow-hidden"
+                className="h-40 flex items-center justify-center relative overflow-hidden px-4"
                 style={{ backgroundColor: svc.color }}
               >
                 <Halftone opacity={0.2} />
@@ -52,22 +52,15 @@ export function Services() {
                   color="var(--color-ink)"
                   pts={6}
                 />
-              </div>
-
-              <div
-                className="absolute left-1/2 -translate-x-1/2 -top-2 w-28 drop-shadow-2xl z-20 group-hover:-translate-y-2 transition-transform"
-                style={{ top: "72px" }}
-              >
-                <DecorativeFace v={svc.v} className="w-full" />
-              </div>
-
-              <div className="pt-16 pb-7 px-6 text-center">
                 <h3
-                  className="text-3xl text-white mb-2"
-                  style={{ ...BANGERS, textShadow: `2px 2px 0 ${svc.color}` }}
+                  className="relative z-10 text-4xl md:text-5xl text-white text-center leading-none group-hover:scale-105 transition-transform"
+                  style={{ ...BANGERS, textShadow: "3px 3px 0 var(--color-ink)" }}
                 >
                   {svc.title}
                 </h3>
+              </div>
+
+              <div className="py-7 px-6 text-center">
                 <p className="text-white/55 font-semibold text-sm leading-relaxed" style={NUNITO}>
                   {svc.desc}
                 </p>

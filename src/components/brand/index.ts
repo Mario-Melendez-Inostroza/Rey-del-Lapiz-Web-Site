@@ -1,6 +1,12 @@
 export { ComicBurst } from "./ComicBurst";
-export { DecorativeFace } from "./DecorativeFace";
+export { Easel } from "./Easel";
 export { Halftone } from "./Halftone";
 export { InstagramIcon } from "./InstagramIcon";
+export { MotionLines } from "./MotionLines";
+export { Pencil } from "./Pencil";
 export { SpeechBubble } from "./SpeechBubble";
+export { Sparkle } from "./Sparkle";
+export { Squiggle } from "./Squiggle";
+export { TikTokIcon } from "./TikTokIcon";
+export { WhatsAppIcon } from "./WhatsAppIcon";
 export { ZigZagBorder } from "./ZigZagBorder";

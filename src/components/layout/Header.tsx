@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-import { ComicBurst } from "../brand";
+import { WhatsAppIcon } from "../brand";
 import { Button } from "../ui/Button";
-import { brandConfig } from "../../config/brand";
+import { logoConfig } from "../../config/logo";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { navigationItems } from "../../data";
@@ -22,15 +22,12 @@ export function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16 md:h-20">
-        <a href="#inicio" className="flex items-center gap-2 group">
-          <ComicBurst
-            className="w-9 h-9 shrink-0 group-hover:rotate-12 transition-transform"
-            color="var(--color-primary)"
-            pts={8}
+        <a href="#inicio" className="flex items-center group">
+          <img
+            src={logoConfig.horizontal}
+            alt={logoConfig.alt}
+            className="h-14 md:h-16 w-auto group-hover:scale-105 transition-transform"
           />
-          <span className="text-primary text-2xl md:text-3xl leading-none" style={BANGERS}>
-            {brandConfig.name}
-          </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-7">
@@ -51,7 +48,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MessageCircle size={16} />
+            <WhatsAppIcon size={16} />
             {siteConfig.ctas.reserveShort}
           </Button>
         </nav>
@@ -85,7 +82,7 @@ export function Header() {
             className="flex items-center justify-center gap-3 bg-whatsapp text-white font-black text-xl px-6 py-3 rounded-full border-4 border-ink"
             style={BANGERS}
           >
-            <MessageCircle size={22} />
+            <WhatsAppIcon size={22} />
             {siteConfig.ctas.reserveWhatsapp}
           </a>
         </div>

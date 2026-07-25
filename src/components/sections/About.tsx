@@ -1,4 +1,4 @@
-import { ComicBurst, DecorativeFace, Halftone, SpeechBubble, ZigZagBorder } from "../brand";
+import { Halftone, SpeechBubble, ZigZagBorder } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { aboutContent } from "../../data";
 
@@ -11,42 +11,26 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div className="flex justify-center relative">
+            {/* Iluminación detrás del marco: halo elegante que "respira" (retroiluminación). */}
             <div
-              className="relative w-64 md:w-80 h-[380px] md:h-[450px] bg-ink rounded-3xl border-8 border-ink shadow-[14px_14px_0_var(--color-ink)] overflow-hidden"
+              aria-hidden="true"
+              className="about-glow absolute left-1/2 top-1/2 w-72 h-96 md:w-96 md:h-[30rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              style={{ marginTop: "-24px" }}
+            />
+
+            <div
+              className="relative w-64 md:w-80 h-[380px] md:h-[450px] rounded-3xl border-8 border-ink shadow-[14px_14px_0_var(--color-ink)] overflow-hidden"
               style={{ transform: "rotate(-4deg) translateY(-24px)" }}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white/20 gap-4">
-                <svg width="72" height="72" viewBox="0 0 100 100" aria-hidden="true">
-                  <circle cx="50" cy="36" r="22" fill="currentColor" />
-                  <ellipse cx="50" cy="84" rx="32" ry="24" fill="currentColor" />
-                </svg>
-                <span
-                  className="text-xs font-black tracking-widest uppercase text-center px-4"
-                  style={NUNITO}
-                >
-                  {aboutContent.imageLabel}
-                </span>
-              </div>
-              <Halftone opacity={0.06} />
+              <img
+                src="/images/artist/foto_del_artista.webp"
+                alt="El Rey del Lápiz, caricaturista en vivo, con su tabla de dibujo"
+                width={640}
+                height={640}
+                decoding="async"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
-
-            <div className="absolute -top-10 -right-6 w-36 rotate-12 drop-shadow-2xl z-20">
-              <DecorativeFace v={4} className="w-full" />
-            </div>
-            <div className="absolute -bottom-8 -left-6 w-28 -rotate-8 drop-shadow-2xl z-20">
-              <DecorativeFace v={1} className="w-full" />
-            </div>
-
-            <ComicBurst
-              className="absolute top-4 right-10 w-12 z-10"
-              color="var(--color-accent)"
-              pts={8}
-            />
-            <ComicBurst
-              className="absolute bottom-16 left-4 w-10 z-10"
-              color="var(--color-blue)"
-              pts={8}
-            />
           </div>
 
           <div>

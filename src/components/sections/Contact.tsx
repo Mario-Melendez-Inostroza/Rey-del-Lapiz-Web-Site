@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
-import { DecorativeFace, Halftone, InstagramIcon } from "../brand";
+import { Halftone, InstagramIcon, WhatsAppIcon } from "../brand";
 import { Button } from "../ui/Button";
 import { Field } from "../ui/Field";
 import { contactFormConfig } from "../../config/editableFields";
@@ -77,13 +77,6 @@ export function Contact() {
     <section id="contacto" className="relative bg-ink py-28 overflow-hidden">
       <Halftone opacity={0.07} />
 
-      <div className="absolute left-0 bottom-32 w-28 opacity-30 -rotate-8 hidden lg:block">
-        <DecorativeFace v={0} className="w-full" />
-      </div>
-      <div className="absolute right-0 top-32 w-28 opacity-30 rotate-8 hidden lg:block">
-        <DecorativeFace v={3} className="w-full" />
-      </div>
-
       <div className="max-w-4xl mx-auto px-6 relative">
         <div className="text-center mb-12">
           <span
@@ -113,7 +106,7 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MessageCircle size={32} />
+            <WhatsAppIcon size={32} />
             {siteConfig.ctas.reserveWhatsapp}
           </Button>
           <Button
@@ -150,7 +143,7 @@ export function Contact() {
               className="inline-flex items-center gap-2 text-primary font-black underline decoration-2 underline-offset-4"
               style={NUNITO}
             >
-              <MessageCircle size={18} /> ¿No se abrió? Escríbeme aquí
+              <WhatsAppIcon size={18} /> ¿No se abrió? Escríbeme aquí
             </a>
           </div>
         ) : (

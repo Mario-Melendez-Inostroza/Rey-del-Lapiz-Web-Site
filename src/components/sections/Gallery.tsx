@@ -1,6 +1,5 @@
-import { ComicBurst, Halftone, InstagramIcon, ZigZagBorder } from "../brand";
+import { Halftone, InstagramIcon, ZigZagBorder } from "../brand";
 import { Button } from "../ui/Button";
-import { brandConfig } from "../../config/brand";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { galleryItems, sectionHeadings } from "../../data";
@@ -34,37 +33,21 @@ export function Gallery() {
           {galleryItems.map((item, i) => (
             <div
               key={i}
-              className="break-inside-avoid mb-4 rounded-2xl border-4 border-border overflow-hidden group hover:border-primary transition-all cursor-pointer"
-              style={{
-                backgroundColor:
-                  brandConfig.galleryCardTints[i % brandConfig.galleryCardTints.length],
-              }}
+              className="break-inside-avoid mb-4 rounded-2xl border-4 border-border overflow-hidden group hover:border-primary transition-all"
             >
-              <div
-                className={`${item.h} relative flex flex-col items-center justify-center gap-3 text-white/15 p-4`}
-              >
-                <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
-                  <circle cx="50" cy="36" r="20" fill="currentColor" />
-                  <ellipse cx="50" cy="82" rx="30" ry="22" fill="currentColor" />
-                </svg>
-                <span
-                  className="text-[10px] font-black tracking-widest uppercase text-center leading-tight"
-                  style={NUNITO}
-                >
-                  {item.label}
-                </span>
-
-                {i % 3 === 0 && (
-                  <ComicBurst
-                    className="absolute top-2 right-2 w-8 opacity-30"
-                    color="var(--color-primary)"
-                    pts={6}
-                  />
-                )}
-
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/8 transition-all flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <div className="relative">
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  width={item.w}
+                  height={item.h}
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 flex items-end bg-ink/0 group-hover:bg-ink/40 p-3 opacity-0 group-hover:opacity-100 transition-all">
                   <span
-                    className="text-[10px] font-black text-white bg-ink/75 px-2 py-1 rounded-full"
+                    className="text-[11px] font-black text-white bg-ink/75 px-2 py-1 rounded-full"
                     style={NUNITO}
                   >
                     {item.label}

@@ -1,9 +1,4 @@
 export const heroContent = {
-  bubbles: {
-    laugh: "¡JAJAJA!",
-    wow: "¡WOW!",
-    laughs: "¡RISAS!",
-  },
   title: {
     prefix: "¡Convierte Tu Evento En Una",
     highlight: "Experiencia Llena De Risas!",
@@ -17,10 +12,7 @@ export const aboutContent = {
   greeting: "¡Hola! Soy El Rey Del Lápiz",
   title: "El Artista Que Hace Reír A Todos",
   imageLabel: "Foto del Artista",
-  paragraphs: [
-    "[Agrega aquí tu historia y presentación personal. Cuéntale a tus clientes quién eres, de dónde vienes y qué te apasiona de las caricaturas en vivo.]",
-    "[Comparte tu trayectoria, tu estilo único y tu misión: transformar cada evento en una experiencia llena de humor, arte y recuerdos inolvidables para todos los invitados.]",
-  ],
+  paragraphs: ["[historia]"],
   badges: [
     { label: "+[X] Eventos", bg: "#111", fg: "#FFC400" },
     { label: "+[X] Caricaturas", bg: "white", fg: "#111" },

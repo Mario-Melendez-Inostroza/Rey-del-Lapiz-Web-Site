@@ -15,4 +15,10 @@ export const socialLinks: SocialLink[] = [
     href: siteConfig.contact.instagram,
     ariaLabel: "Instagram",
   },
+  {
+    id: "tiktok",
+    label: "TikTok",
+    href: siteConfig.contact.tiktok,
+    ariaLabel: "TikTok",
+  },
 ];

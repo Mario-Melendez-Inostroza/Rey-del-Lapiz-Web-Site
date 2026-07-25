@@ -30,3 +30,240 @@
   --nb-hy: 2px;
   --nb-t: 6px;
 }
+
+/* Foco visible por teclado (a11y). Doble tono para verse en cualquier fondo del
+   sitio: el halo primario resalta sobre superficies oscuras y el contorno ink
+   resalta sobre las claras (tarjetas blancas del FAQ, secciones amarillas).
+   Regla sin capa a propósito, para que gane a las utilidades de Tailwind. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-primary);
+}
+
+/* Textura de grafito / papel del Hero (monocroma, sutil, estática). El rayado imita el
+   sombreado a lápiz; se desvanece hacia los bordes con una máscara radial. El grano fino
+   (SVG feTurbulence desaturado, teselado) aporta el "papel". Sin colores de marca. */
+.hero-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 6px,
+    rgba(255, 255, 255, 0.05) 6px 7px
+  );
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 68%);
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 68%);
+}
+
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Hero — "últimos retoques". La caricatura (imagen terminada) está SIEMPRE visible;
+   un lápiz amarillo simula los retoques finales recorriendo cabello → ojos → sonrisa
+   → mano → hombros (~3.6 s) y luego sale de escena. Destellos blancos breves
+   acompañan su paso. Solo movimiento por composición (transform/opacity), una vez al
+   montar. El lápiz y los destellos solo existen en movimiento: ocultos por defecto,
+   así con prefers-reduced-motion la obra queda terminada, sin lápiz ni destellos. */
+.hero-cari-pencil,
+.hero-cari-spark,
+.hero-firework {
+  opacity: 0;
+}
+/* El giro pivota en la PUNTA del lápiz (abajo-centro del SVG), así al inclinarlo
+   "de lado" la punta sigue tocando el papel en su zona. */
+.hero-cari-pencil {
+  transform-origin: 50% 90%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* El "sol" de fondo late (prende/apaga) como luces de escenario. Solo opacidad
+     para no romper el -translate de centrado del ComicBurst. */
+  .hero-sun {
+    animation: hero-sun-glow 3s ease-in-out infinite;
+  }
+
+  /* La animación de la caricatura NO corre al cargar, sino cuando el caballete entra en
+     pantalla (clase `hero-anim-run` que añade el hook useInView). Así en móvil, donde la
+     caricatura está más abajo, se reproduce al hacer scroll hasta ella. */
+  .hero-anim-run .hero-cari-pencil {
+    animation: hero-cari-pencil 3.6s ease-in-out 0.7s 1 both;
+  }
+  /* El dibujo se descubre de arriba hacia abajo siguiendo la bajada del lápiz. */
+  .hero-anim-run .hero-cari-reveal {
+    animation: hero-cari-reveal 3.6s ease-in-out 0.7s 1 both;
+  }
+  .hero-anim-run .hero-cari-spark {
+    animation: hero-cari-flash 0.5s ease-out var(--spark-d, 1s) 1 both;
+  }
+  /* Fuegos artificiales: arrancan al terminar el dibujo (~4.3 s) y CONTINÚAN en bucle. */
+  .hero-anim-run .hero-firework {
+    animation: hero-firework 0.9s ease-out var(--fw-d, 4.3s) infinite both;
+  }
+}
+
+@keyframes hero-sun-glow {
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.14;
+  }
+}
+
+/* El lápiz se ancla por su punta (translate) y recorre zonas por left/top (% del
+   panel, así escala con la caricatura); la rotación varía levemente = gesto natural. */
+@keyframes hero-cari-pencil {
+  0% {
+    opacity: 0;
+    left: 88%;
+    top: 108%;
+    transform: translate(-50%, -85%) rotate(-58deg);
+  }
+  6% {
+    opacity: 1;
+  }
+  14% {
+    left: 44%;
+    top: 12%;
+    transform: translate(-50%, -85%) rotate(-48deg);
+  }
+  26% {
+    left: 39%;
+    top: 9%;
+    transform: translate(-50%, -85%) rotate(-52deg);
+  }
+  40% {
+    left: 50%;
+    top: 33%;
+    transform: translate(-50%, -85%) rotate(-45deg);
+  }
+  56% {
+    left: 39%;
+    top: 47%;
+    transform: translate(-50%, -85%) rotate(-43deg);
+  }
+  70% {
+    left: 70%;
+    top: 63%;
+    transform: translate(-50%, -85%) rotate(-50deg);
+  }
+  84% {
+    left: 37%;
+    top: 80%;
+    transform: translate(-50%, -85%) rotate(-46deg);
+  }
+  92% {
+    opacity: 1;
+    left: 58%;
+    top: 72%;
+    transform: translate(-50%, -85%) rotate(-49deg);
+  }
+  100% {
+    opacity: 0;
+    left: 104%;
+    top: 96%;
+    transform: translate(-50%, -85%) rotate(-58deg);
+  }
+}
+
+/* Descubre el dibujo de arriba (cabello) hacia abajo (hombros), en sincronía con el
+   descenso del lápiz. Monótono: nunca "des-revela". El papel (contenedor) queda visible. */
+@keyframes hero-cari-reveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  8% {
+    clip-path: inset(0 0 92% 0);
+  }
+  14% {
+    clip-path: inset(0 0 82% 0);
+  }
+  26% {
+    clip-path: inset(0 0 78% 0);
+  }
+  40% {
+    clip-path: inset(0 0 60% 0);
+  }
+  56% {
+    clip-path: inset(0 0 48% 0);
+  }
+  70% {
+    clip-path: inset(0 0 32% 0);
+  }
+  84% {
+    clip-path: inset(0 0 12% 0);
+  }
+  92% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-cari-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes hero-firework {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.15) rotate(20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4) rotate(35deg);
+  }
+}
+
+/* Iluminación detrás del marco de la foto del artista (About): halo cálido/blanco,
+   difuminado, que "respira" para un brillo elegante. Estático con reduced-motion. */
+.about-glow {
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 244, 214, 0.55) 45%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  filter: blur(26px);
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-glow {
+    animation: about-glow-pulse 4.5s ease-in-out infinite;
+  }
+}
+
+@keyframes about-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
