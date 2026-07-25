@@ -28,6 +28,7 @@ export function About() {
                 alt="El Rey del Lápiz, caricaturista en vivo, con su tabla de dibujo"
                 width={640}
                 height={640}
+                loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover object-center"
               />
