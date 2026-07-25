@@ -8,10 +8,15 @@ import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { navigationItems } from "../../data";
 import { useScrolled } from "../../hooks/useScrolled";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
+
+// Referencia estable para el observer del scroll-spy (los `id` de cada sección del nav).
+const navIds = navigationItems.map((l) => l.href.slice(1));
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrolled(50);
+  const activeId = useScrollSpy(navIds);
 
   return (
     <header
@@ -31,16 +36,24 @@ export function Header() {
         </a>
 
         <nav className="hidden lg:flex items-center gap-7">
-          {navigationItems.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-white hover:text-primary transition-colors text-sm font-black uppercase tracking-wider"
-              style={NUNITO}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navigationItems.map((l) => {
+            const active = l.href.slice(1) === activeId;
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "location" : undefined}
+                className={`transition-colors text-sm font-black uppercase tracking-wider ${
+                  active
+                    ? "text-primary underline decoration-2 underline-offset-8"
+                    : "text-white hover:text-primary"
+                }`}
+                style={NUNITO}
+              >
+                {l.label}
+              </a>
+            );
+          })}
           <Button
             variant="whatsapp"
             size="sm"
@@ -64,17 +77,21 @@ export function Header() {
 
       {open && (
         <div className="lg:hidden bg-ink border-t-4 border-primary px-6 py-6 flex flex-col gap-5">
-          {navigationItems.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-white text-2xl"
-              style={BANGERS}
-              onClick={() => setOpen(false)}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navigationItems.map((l) => {
+            const active = l.href.slice(1) === activeId;
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "location" : undefined}
+                className={`text-2xl ${active ? "text-primary" : "text-white"}`}
+                style={BANGERS}
+                onClick={() => setOpen(false)}
+              >
+                {l.label}
+              </a>
+            );
+          })}
           <a
             href={siteConfig.contact.whatsapp}
             target="_blank"
