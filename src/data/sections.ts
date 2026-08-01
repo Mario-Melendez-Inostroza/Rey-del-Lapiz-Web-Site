@@ -14,9 +14,9 @@ export const aboutContent = {
   imageLabel: "Foto del Artista",
   paragraphs: ["[historia]"],
   badges: [
-    { label: "+ 100 Eventos", bg: "#111", fg: "#FFC400" },
-    { label: "+ 1000 Caricaturas", bg: "white", fg: "#111" },
-    { label: " + 10 Años Exp.", bg: "#FF3D00", fg: "white" },
+    { label: "+ 800 Eventos", bg: "#111", fg: "#FFC400" },
+    { label: "+ 150.000 Caricaturas", bg: "white", fg: "#111" },
+    { label: " + 30 Años Exp.", bg: "#FF3D00", fg: "white" },
   ],
 };
 
