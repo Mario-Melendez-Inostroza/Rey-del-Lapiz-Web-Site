@@ -29,10 +29,10 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16 md:h-20">
         <a href="#inicio" className="flex items-center group">
           <img
-            src={logoConfig.horizontal}
+            src={logoConfig.full}
             alt={logoConfig.alt}
             width={400}
-            height={200}
+            height={266}
             className="h-14 md:h-16 w-auto group-hover:scale-105 transition-transform"
           />
         </a>
