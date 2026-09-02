@@ -298,10 +298,71 @@
     transition:
       opacity 0.6s ease,
       transform 0.6s ease;
+    /* `--reveal-d` la inyecta <Reveal delay>; escalona grillas de tarjetas hermanas. */
+    transition-delay: var(--reveal-d, 0ms);
   }
 
   .reveal-in {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Servicios — lámina de cómic.
+   Estado de reposo: papel torcido (--svc-rot) con sombra dura en el color del servicio
+   (--svc), que es lo que da identidad propia a cada tarjeta sobre el fondo ink.
+   Al enfocar (hover o teclado vía :focus-within) la lámina se endereza y se levanta:
+   un "lift", no el "press" de los botones — la tarjeta no es pulsable. */
+.service-card {
+  box-shadow: 8px 8px 0 var(--svc);
+}
+
+.service-underline path {
+  stroke-dasharray: 130;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .service-card {
+    transform: rotate(var(--svc-rot));
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: rotate(0deg) translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--svc);
+  }
+
+  .service-icon {
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease;
+  }
+  .service-card:hover .service-icon,
+  .service-card:focus-within .service-icon {
+    transform: scale(1.15) rotate(-6deg);
+    opacity: 0.65;
+  }
+
+  /* El trazo se "dibuja" solo al enfocar la tarjeta: es el guiño al lápiz de la marca.
+     Única animación de la sección que no es composited (stroke-dashoffset), aceptada
+     porque es un único path corto y aislado. Con reduced-motion queda ya dibujado. */
+  .service-underline path {
+    stroke-dashoffset: 130;
+    transition: stroke-dashoffset 0.5s ease 0.05s;
+  }
+  .service-card:hover .service-underline path,
+  .service-card:focus-within .service-underline path {
+    stroke-dashoffset: 0;
+  }
+
+  .service-shout {
+    transform: rotate(6deg);
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover .service-shout,
+  .service-card:focus-within .service-shout {
+    transform: rotate(-4deg) scale(1.08);
   }
 }

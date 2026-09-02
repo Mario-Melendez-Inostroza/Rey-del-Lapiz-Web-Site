@@ -5,6 +5,7 @@ import { Halftone, InstagramIcon, WhatsAppIcon } from "../brand";
 import { Button } from "../ui/Button";
 import { Field } from "../ui/Field";
 import { Reveal } from "../ui/Reveal";
+import { SectionHeader } from "../ui/SectionHeader";
 import { contactFormConfig } from "../../config/editableFields";
 import { siteConfig } from "../../config/site";
 import { BANGERS, NUNITO } from "../../config/typography";
@@ -79,23 +80,13 @@ export function Contact() {
       <Halftone opacity={0.07} />
 
       <Reveal className="max-w-4xl mx-auto px-6 relative">
-        <div className="text-center mb-12">
-          <span
-            className="inline-block bg-whatsapp text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
-            style={NUNITO}
-          >
-            {sectionHeadings.contact.eyebrow}
-          </span>
-          <h2
-            className="text-5xl md:text-7xl text-white mb-4"
-            style={{ ...BANGERS, textShadow: "4px 4px 0 var(--color-whatsapp)" }}
-          >
-            {sectionHeadings.contact.title}
-          </h2>
-          <p className="text-white/50 text-lg font-bold" style={NUNITO}>
-            {sectionHeadings.contact.description}
-          </p>
-        </div>
+        <SectionHeader
+          className="mb-12"
+          eyebrow={sectionHeadings.contact.eyebrow}
+          title={sectionHeadings.contact.title}
+          description={sectionHeadings.contact.description}
+          accent="var(--color-whatsapp)"
+        />
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
           <Button

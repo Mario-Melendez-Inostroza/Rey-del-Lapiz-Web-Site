@@ -9,6 +9,10 @@ export type Service = {
   title: string;
   desc: string;
   color: string;
+  /** Icono del servicio; se dibuja como filigrana dentro del panel de color. */
+  Icon: LucideIcon;
+  /** Onomatopeya de cómic del sticker. Corta, en mayúsculas, con signos. */
+  shout: string;
 };
 
 export type GalleryItem = {

@@ -1,8 +1,9 @@
 import { Halftone, InstagramIcon, ZigZagBorder } from "../brand";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
+import { SectionHeader } from "../ui/SectionHeader";
 import { siteConfig } from "../../config/site";
-import { BANGERS, NUNITO } from "../../config/typography";
+import { NUNITO } from "../../config/typography";
 import { galleryItems, sectionHeadings } from "../../data";
 
 export function Gallery() {
@@ -12,23 +13,13 @@ export function Gallery() {
       <ZigZagBorder top />
 
       <Reveal className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span
-            className="inline-block bg-accent text-white font-black px-4 py-1 text-xs rounded-full border-4 border-ink uppercase tracking-widest mb-5"
-            style={NUNITO}
-          >
-            {sectionHeadings.gallery.eyebrow}
-          </span>
-          <h2
-            className="text-5xl md:text-7xl text-white mb-4"
-            style={{ ...BANGERS, textShadow: "4px 4px 0 var(--color-accent)" }}
-          >
-            {sectionHeadings.gallery.title}
-          </h2>
-          <p className="text-white/50 text-lg font-bold max-w-xl mx-auto" style={NUNITO}>
-            {sectionHeadings.gallery.description}
-          </p>
-        </div>
+        <SectionHeader
+          className="mb-14"
+          eyebrow={sectionHeadings.gallery.eyebrow}
+          title={sectionHeadings.gallery.title}
+          description={sectionHeadings.gallery.description}
+          accent="var(--color-accent)"
+        />
 
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-gap:1rem]">
           {galleryItems.map((item, i) => (

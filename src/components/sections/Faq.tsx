@@ -3,7 +3,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { ComicBurst, Halftone, ZigZagBorder } from "../brand";
 import { Reveal } from "../ui/Reveal";
-import { BANGERS, NUNITO } from "../../config/typography";
+import { SectionHeader } from "../ui/SectionHeader";
+import { NUNITO } from "../../config/typography";
 import { faqItems, sectionHeadings } from "../../data";
 
 export function Faq() {
@@ -15,15 +16,14 @@ export function Faq() {
       <ZigZagBorder top />
 
       <Reveal className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-14">
+        <SectionHeader
+          className="mb-14"
+          tone="light"
+          title={sectionHeadings.faq.title}
+          description={sectionHeadings.faq.description}
+        >
           <ComicBurst className="inline-block w-20 mb-4" color="var(--color-ink)" pts={10} />
-          <h2 className="text-5xl md:text-7xl text-ink mb-4" style={BANGERS}>
-            {sectionHeadings.faq.title}
-          </h2>
-          <p className="text-ink/65 text-lg font-bold" style={NUNITO}>
-            {sectionHeadings.faq.description}
-          </p>
-        </div>
+        </SectionHeader>
 
         <div className="flex flex-col gap-4">
           {faqItems.map((faq, i) => (
