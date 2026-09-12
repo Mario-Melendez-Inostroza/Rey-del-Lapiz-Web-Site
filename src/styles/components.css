@@ -312,8 +312,10 @@
    Estado de reposo: papel torcido (--svc-rot) con sombra dura en el color del servicio
    (--svc), que es lo que da identidad propia a cada tarjeta sobre el fondo ink.
    Al enfocar (hover o teclado vía :focus-within) la lámina se endereza y se levanta:
-   un "lift", no el "press" de los botones — la tarjeta no es pulsable. */
-.service-card {
+   un "lift", no el "press" de los botones — la tarjeta no es pulsable.
+   El marco del video vitrina (.service-showcase) comparte estas reglas: es una lámina más. */
+.service-card,
+.service-showcase {
   box-shadow: 8px 8px 0 var(--svc);
 }
 
@@ -322,14 +324,17 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .service-card {
+  .service-card,
+  .service-showcase {
     transform: rotate(var(--svc-rot));
     transition:
       transform 0.35s ease,
       box-shadow 0.35s ease;
   }
   .service-card:hover,
-  .service-card:focus-within {
+  .service-card:focus-within,
+  .service-showcase:hover,
+  .service-showcase:focus-within {
     transform: rotate(0deg) translate(-4px, -4px);
     box-shadow: 12px 12px 0 var(--svc);
   }
@@ -362,7 +367,9 @@
     transition: transform 0.35s ease;
   }
   .service-card:hover .service-shout,
-  .service-card:focus-within .service-shout {
+  .service-card:focus-within .service-shout,
+  .service-showcase:hover .service-shout,
+  .service-showcase:focus-within .service-shout {
     transform: rotate(-4deg) scale(1.08);
   }
 }

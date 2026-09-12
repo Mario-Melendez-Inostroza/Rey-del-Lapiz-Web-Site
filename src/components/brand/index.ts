@@ -1,4 +1,5 @@
 export { ComicBurst } from "./ComicBurst";
+export { ComicSticker } from "./ComicSticker";
 export { Easel } from "./Easel";
 export { Halftone } from "./Halftone";
 export { InstagramIcon } from "./InstagramIcon";

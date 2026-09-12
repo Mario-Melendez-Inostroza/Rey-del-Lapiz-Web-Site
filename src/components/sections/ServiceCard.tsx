@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { ComicBurst, Halftone } from "../brand";
+import { ComicSticker, Halftone } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
 import type { Service } from "../../types/site";
 
@@ -21,7 +21,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
 
   return (
     <article
-      className="service-card group relative h-full bg-surface border-4 border-border rounded-3xl"
+      className="service-card group @container relative h-full bg-surface border-4 border-border rounded-3xl"
       style={
         {
           "--svc": service.color,
@@ -31,13 +31,12 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
     >
       {/* Sticker de onomatopeya. Vive fuera del recorte del panel, por eso el root no lleva
           overflow-hidden. Fondo blanco fijo: contrasta con los seis colores de servicio. */}
-      <span
-        className="service-shout absolute -top-4 -right-2 z-20 inline-flex items-center rounded-full border-[3px] border-ink bg-white px-3 pt-1.5 pb-1 text-base leading-none text-ink"
-        style={BANGERS}
+      <ComicSticker
+        className="service-shout absolute -top-4 -right-2 z-20 text-base"
+        burstColor="var(--svc)"
       >
-        <ComicBurst className="absolute -left-4 -top-3 w-8 -z-10" color="var(--svc)" pts={8} />
         {service.shout}
-      </span>
+      </ComicSticker>
 
       {/* Panel de color: filigrana + título + trazo de lápiz */}
       <div
@@ -54,8 +53,10 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
           aria-hidden="true"
         />
 
+        {/* Tamaño por ancho de la tarjeta (container query), no por viewport: la misma tarjeta
+            vive en grillas de 1, 2 columnas o junto al video, y el título debe caber en una línea. */}
         <h3
-          className="relative z-10 text-4xl md:text-5xl text-white text-center leading-none"
+          className="relative z-10 text-3xl @[17rem]:text-4xl @[22rem]:text-5xl text-white text-center leading-none"
           style={{ ...BANGERS, textShadow: "3px 3px 0 var(--color-ink)" }}
         >
           {service.title}

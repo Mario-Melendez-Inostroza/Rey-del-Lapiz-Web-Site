@@ -1,8 +1,9 @@
 import { ComicBurst, Halftone } from "../brand";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeader } from "../ui/SectionHeader";
-import { sectionHeadings, services } from "../../data";
+import { sectionHeadings, services, servicesShowcase } from "../../data";
 import { ServiceCard } from "./ServiceCard";
+import { ServiceShowcase } from "./ServiceShowcase";
 
 /** Escalonado de entrada entre tarjetas (ms). */
 const STAGGER = 90;
@@ -29,14 +30,21 @@ export function Services() {
           </SectionHeader>
         </Reveal>
 
-        {/* El gap es más generoso que en el resto de grillas: el sticker sobresale de la
-            tarjeta y las sombras duras van en el color del servicio, y ambos necesitan aire. */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {services.map((svc, i) => (
-            <Reveal key={svc.title} delay={i * STAGGER} className="h-full">
-              <ServiceCard service={svc} index={i} />
-            </Reveal>
-          ))}
+        {/* Desktop: tarjetas 2×3 (~62%) + video vertical (~38%). Tablet y móvil: el video
+            baja bajo las tarjetas — lado a lado no queda legible por debajo de `lg`. */}
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-center lg:gap-14">
+          {/* El gap deja aire a los stickers que sobresalen y a las sombras duras de color. */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 xl:gap-10">
+            {services.map((svc, i) => (
+              <Reveal key={svc.title} delay={i * STAGGER} className="h-full">
+                <ServiceCard service={svc} index={i} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={2 * STAGGER}>
+            <ServiceShowcase showcase={servicesShowcase} />
+          </Reveal>
         </div>
       </div>
     </section>

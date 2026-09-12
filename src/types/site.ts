@@ -15,6 +15,19 @@ export type Service = {
   shout: string;
 };
 
+/** Video vitrina de la sección Servicios (el show en acción, junto a las tarjetas). */
+export type ServiceShowcase = {
+  /** Ruta del video en `public/videos/`. */
+  src: string;
+  /** Dimensiones intrínsecas (px): fijan el aspect-ratio del marco y evitan CLS. */
+  w: number;
+  h: number;
+  /** Descripción accesible del video. */
+  label: string;
+  /** Texto del sticker sobre el marco. */
+  sticker: string;
+};
+
 export type GalleryItem = {
   /** Ruta de la imagen en `public/images/gallery/`. */
   src: string;

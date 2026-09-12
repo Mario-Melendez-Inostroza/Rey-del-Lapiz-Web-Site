@@ -1,6 +1,6 @@
 import { Briefcase, Cake, Gem, GraduationCap, PartyPopper, Store } from "lucide-react";
 
-import type { Service } from "../types/site";
+import type { Service, ServiceShowcase } from "../types/site";
 
 /**
  * Servicios ofrecidos. `color` es contenido del cliente (identidad de cada tipo de evento),
@@ -51,3 +51,18 @@ export const services: Service[] = [
     shout: "¡Que no pare!",
   },
 ];
+
+/**
+ * Video vitrina junto a las tarjetas. Versión web del máster (fuera de `public/`, en
+ * `raw-assets/videos/`): 720×954, H.264 sin audio (el sitio lo reproduce en silencio) y con
+ * el índice al inicio (faststart). Aun así `ServiceShowcase` lo carga en diferido: el `src`
+ * se asigna recién cuando el marco entra en vista, nunca en la carga inicial de la página.
+ * `w`/`h` son las del archivo servido: fijan el aspect-ratio exacto del marco.
+ */
+export const servicesShowcase: ServiceShowcase = {
+  src: "/videos/lv_0_20260901063213-web.mp4",
+  w: 720,
+  h: 954,
+  label: "El Rey Del Lápiz dibujando caricaturas en vivo en bodas, cumpleaños, teatros y terrazas",
+  sticker: "🔥 ¡Mira en acción!",
+};

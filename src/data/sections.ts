@@ -12,7 +12,10 @@ export const aboutContent = {
   greeting: "¡Hola! Soy El Rey Del Lápiz",
   title: "El Artista Que Hace Reír A Todos",
   imageLabel: "Foto del Artista",
-  paragraphs: ["[historia]"],
+  paragraphs: [
+    "Llevo más de 30 años convirtiendo caras en caricaturas y eventos en recuerdos. He dibujado en matrimonios, cumpleaños, empresas, ferias y todo tipo de celebraciones.",
+    "Tú pones el evento. Yo pongo el lápiz, el humor y las sonrisas. ✏️😄",
+  ],
   badges: [
     { label: "+ 800 Eventos", bg: "#111", fg: "#FFC400" },
     { label: "+ 150.000 Caricaturas", bg: "white", fg: "#111" },
