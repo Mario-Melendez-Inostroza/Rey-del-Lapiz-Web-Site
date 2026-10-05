@@ -3,7 +3,7 @@ import type { FaqItem } from "../types/site";
 export const faqItems: FaqItem[] = [
   {
     q: "¿Cuánto tiempo antes necesito reservar?",
-    a: "Consulta la agenda de disponibilad directamente en el boton de whatsapp.",
+    a: "Consulta la agenda de disponibilidad directamente en el boton de whatsapp.",
   },
   {
     q: "¿Cuántas caricaturas puedes realizar por hora?",
@@ -23,6 +23,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "¿Puedes hacer caricaturas de grupos o solo individuales?",
-    a: " realizo caricaturas individuales , parejas y tambien en grupo. Cuéntame los detalles de tu evento y te preparo una propuesta personalizada.",
+    a: " Realizo caricaturas individuales , parejas y tambien en grupo. Cuéntame los detalles de tu evento y te preparo una propuesta personalizada.",
   },
 ];
