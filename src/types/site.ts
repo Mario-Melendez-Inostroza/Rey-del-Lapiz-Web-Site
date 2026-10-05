@@ -1,5 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
+import type { ServiceMascotVariant } from "../components/brand/ServiceMascot";
+
 export type NavigationItem = {
   href: string;
   label: string;
@@ -9,8 +11,8 @@ export type Service = {
   title: string;
   desc: string;
   color: string;
-  /** Icono del servicio; se dibuja como filigrana dentro del panel de color. */
-  Icon: LucideIcon;
+  /** Mascota cómica del servicio (`ServiceMascot`); se dibuja en la esquina del panel. */
+  mascot: ServiceMascotVariant;
   /** Onomatopeya de cómic del sticker. Corta, en mayúsculas, con signos. */
   shout: string;
 };

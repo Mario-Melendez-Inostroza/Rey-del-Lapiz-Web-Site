@@ -13,8 +13,10 @@ export const aboutContent = {
   title: "El Artista Que Hace Reír A Todos",
   imageLabel: "Foto del Artista",
   paragraphs: [
-    "Llevo más de 30 años convirtiendo caras en caricaturas y eventos en recuerdos. He dibujado en matrimonios, cumpleaños, empresas, ferias y todo tipo de celebraciones.",
-    "Tú pones el evento. Yo pongo el lápiz, el humor y las sonrisas. ✏️😄",
+    "Todo gran dibujo comienza con un primer trazo.",
+    "Hace más de 30 años, tomé un lápiz y descubrí que podía hacer algo más que dibujar: podía convertir un instante en una sonrisa y una sonrisa en un recuerdo para siempre.",
+    "Desde entonces, mi lápiz ha viajado por matrimonios, cumpleaños, empresas, ferias y celebraciones, llenando hojas de rostros, historias y momentos únicos.",
+    "Porque cuando el lápiz cobra vida, cualquier persona puede convertirse en protagonista. ✏️✨",
   ],
   badges: [
     { label: "+ 800 Eventos", bg: "#111", fg: "#FFC400" },

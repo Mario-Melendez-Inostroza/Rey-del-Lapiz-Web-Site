@@ -44,7 +44,10 @@ export function ServiceShowcase({ showcase }: { showcase: Showcase }) {
   }, [shouldLoad, visible, wantsPlay]);
 
   return (
-    <div ref={loadRef} className="relative mx-auto w-full max-w-[26rem] lg:max-w-none">
+    // El ancho está topado (no llena la columna): al ser vertical, sin este límite el marco
+    // crece más alto que el viewport y se siente "cortado" al tener que hacer scroll para verlo
+    // completo. 23rem lo deja a la altura de las primeras dos filas de tarjetas.
+    <div ref={loadRef} className="relative mx-auto w-full max-w-[26rem] lg:max-w-[23rem]">
       {/* Decoración de fondo: ráfaga que asoma tras la esquina inferior y el lápiz de marca
           apoyado en el costado. Ambas quedan fuera del área del video. */}
       <ComicBurst

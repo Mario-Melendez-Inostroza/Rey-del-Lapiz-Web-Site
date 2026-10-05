@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { ComicSticker, Halftone } from "../brand";
+import { ComicSticker, Halftone, ServiceBackdrop, ServiceMascot } from "../brand";
 import { BANGERS, NUNITO } from "../../config/typography";
 import type { Service } from "../../types/site";
 
@@ -17,8 +17,6 @@ const REST_TILT = ["-1.5deg", "1.2deg", "-0.8deg", "1.5deg", "-1.2deg", "0.9deg"
  * en `styles/components.css` bajo `prefers-reduced-motion: no-preference`.
  */
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const { Icon } = service;
-
   return (
     <article
       className="service-card group @container relative h-full bg-surface border-4 border-border rounded-3xl"
@@ -43,14 +41,20 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         className="relative flex flex-col items-center justify-center overflow-hidden rounded-t-[1.25rem] border-b-4 border-ink px-5 pt-8 pb-7"
         style={{ backgroundColor: "var(--svc)" }}
       >
+        {/* Escena de fondo (pastel, auditorio, stand...) detrás del halftone: se lee como
+            textura de marca, nunca compite con el título ni con la mascota de la esquina. */}
+        <ServiceBackdrop
+          variant={service.mascot}
+          className="pointer-events-none absolute inset-0 h-full w-full"
+        />
         <Halftone opacity={0.2} />
 
-        {/* El icono se sale del panel por la esquina: lee como textura de viñeta, no como
-            un logo centrado detrás del título. El recorte del panel lo corta. */}
-        <Icon
-          className="service-icon pointer-events-none absolute -bottom-7 -right-5 h-36 w-36 rotate-12 text-white/25"
-          strokeWidth={2.5}
-          aria-hidden="true"
+        {/* La mascota se sale del panel por la esquina: lee como una calcomanía asomando,
+            no como una ilustración centrada compitiendo con el título. El recorte del
+            panel la corta — por eso no necesita encajar completa. */}
+        <ServiceMascot
+          variant={service.mascot}
+          className="service-icon pointer-events-none absolute -bottom-2 -right-2 h-28 w-28 rotate-6 drop-shadow-[2px_2px_0_rgba(0,0,0,0.15)]"
         />
 
         {/* Tamaño por ancho de la tarjeta (container query), no por viewport: la misma tarjeta

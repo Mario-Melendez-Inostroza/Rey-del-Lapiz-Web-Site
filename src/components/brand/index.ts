@@ -1,5 +1,8 @@
 export { ComicBurst } from "./ComicBurst";
 export { ComicSticker } from "./ComicSticker";
+export { ServiceBackdrop } from "./ServiceBackdrop";
+export { ServiceMascot } from "./ServiceMascot";
+export type { ServiceMascotVariant } from "./ServiceMascot";
 export { Easel } from "./Easel";
 export { Halftone } from "./Halftone";
 export { InstagramIcon } from "./InstagramIcon";

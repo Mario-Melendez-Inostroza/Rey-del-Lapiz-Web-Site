@@ -3,7 +3,23 @@ import { Reveal } from "../ui/Reveal";
 import { BANGERS, NUNITO } from "../../config/typography";
 import { aboutContent } from "../../data";
 
+/** Frase a destacar dentro del cuerpo de la historia (debe existir tal cual en el texto). */
+const HIGHLIGHT = "un recuerdo para siempre";
+
+/**
+ * Parte `text` alrededor de `phrase` para envolverla en un `<strong>` sin tocar el contenido
+ * (vive completo en `data/`). Si la frase no aparece —p. ej. el texto cambia más adelante—
+ * degrada con gracia devolviendo el párrafo intacto, sin destacar nada.
+ */
+function splitHighlight(text: string, phrase: string): [string, string | null, string] {
+  const i = text.indexOf(phrase);
+  return i === -1 ? [text, null, ""] : [text.slice(0, i), phrase, text.slice(i + phrase.length)];
+}
+
 export function About() {
+  const [introLine, storyBody, storyDetail, storyClose] = aboutContent.paragraphs;
+  const [beforeHighlight, highlighted, afterHighlight] = splitHighlight(storyBody, HIGHLIGHT);
+
   return (
     <section className="relative bg-primary py-28 overflow-hidden">
       <Halftone opacity={0.18} />
@@ -50,11 +66,38 @@ export function About() {
               {aboutContent.title}
             </h2>
 
-            <p className="text-ink/75 text-lg font-bold mb-4 leading-relaxed" style={NUNITO}>
-              {aboutContent.paragraphs[0]}
+            {/* Primer trazo: línea de apertura, separada del cuerpo solo por el espaciado
+                (antes llevaba un garabato de lápiz debajo, quitado por pedido del cliente). */}
+            <p
+              className="text-ink text-xl md:text-2xl font-extrabold leading-snug mb-5"
+              style={NUNITO}
+            >
+              {introLine}
             </p>
-            <p className="text-ink/70 text-base font-semibold mb-10 leading-relaxed" style={NUNITO}>
-              {aboutContent.paragraphs[1]}
+
+            {/* Cuerpo: texto sólido (sin opacidad) para máximo contraste sobre el amarillo,
+                y un ancho máximo de lectura para que las líneas no se alarguen en tablet. */}
+            <div className="max-w-prose">
+              <p
+                className="text-ink text-lg md:text-xl font-semibold leading-relaxed mb-4"
+                style={NUNITO}
+              >
+                {beforeHighlight}
+                {highlighted ? <strong className="font-black">{highlighted}</strong> : null}
+                {afterHighlight}
+              </p>
+              <p
+                className="text-ink text-lg md:text-xl font-semibold leading-relaxed mb-6"
+                style={NUNITO}
+              >
+                {storyDetail}
+              </p>
+            </div>
+
+            {/* Cierre: la frase que resume la promesa de marca, con más peso y tamaño que
+                el resto — el remate de la historia, no un párrafo más. */}
+            <p className="text-ink text-xl md:text-2xl font-black leading-snug mb-8" style={NUNITO}>
+              {storyClose}
             </p>
 
             <div className="flex flex-wrap gap-4">

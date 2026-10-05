@@ -3,15 +3,15 @@ import type { FaqItem } from "../types/site";
 export const faqItems: FaqItem[] = [
   {
     q: "¿Cuánto tiempo antes necesito reservar?",
-    a: "Se recomienda reservar con al menos [X] semanas de anticipación para asegurar disponibilidad, especialmente en temporada alta (diciembre, marzo, octubre).",
+    a: "Consulta la agenda de disponibilad directamente en el boton de whatsapp.",
   },
   {
     q: "¿Cuántas caricaturas puedes realizar por hora?",
-    a: "Dependiendo del nivel de detalle, puedo realizar entre [X] y [X] caricaturas por hora. Podemos ajustar el estilo según el número de invitados y la duración del evento.",
+    a: "Dependiendo del nivel de detalle, puedo realizar hasta 30 caricaturas por hora en blanco y negro, o 20 por hora a color. Podemos ajustar el estilo según el número de invitados y la duración del evento.",
   },
   {
     q: "¿Qué necesitas para instalarte en el evento?",
-    a: "Solo necesito un espacio de aproximadamente [X]m², buena iluminación y una mesa. Todo el material lo traigo yo. ¡No te preocupes por nada más!",
+    a: "Todo el material lo traigo yo. ¡No te preocupes por nada !",
   },
   {
     q: "¿Haces caricaturas digitales también?",
@@ -19,10 +19,10 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "¿Cuál es tu área de cobertura en Chile?",
-    a: "Trabajo principalmente en [tu ciudad/región]. Para eventos en otras ciudades o regiones, contáctame y conversamos las opciones de traslado.",
+    a: "Trabajo en Santiago y a todo Chile . Para eventos en otras ciudades o regiones, contáctame y conversamos .",
   },
   {
     q: "¿Puedes hacer caricaturas de grupos o solo individuales?",
-    a: "Principalmente realizo caricaturas individuales o en parejas, pero también tengo opciones para grupos pequeños. Cuéntame los detalles de tu evento y te preparo una propuesta personalizada.",
+    a: " realizo caricaturas individuales , parejas y tambien en grupo. Cuéntame los detalles de tu evento y te preparo una propuesta personalizada.",
   },
 ];
